@@ -1,0 +1,1414 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Cairo Marriott Hotel · a website proposal</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Concept page for the Cairo Marriott Hotel with its LifeBook interactive guide. Not an official Marriott page.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1b1512;--night:#0e1a1a;--cream:#f6efe2;--paper:#fffaf0;--gold:#c9a24e;--gold-deep:#8a651c;--terra:#a4472a;--teal:#1d4744;--muted:#6b5e52;--line:rgba(27,21,18,.14);
+  --display:"Cormorant Garamond",Cormorant,Georgia,"Times New Roman",serif;--body:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--wrap:1180px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--cream);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--gold-deep)}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.02;margin:0;letter-spacing:-.01em;text-wrap:balance}
+h2{font-size:clamp(38px,5vw,64px)}
+h3{font-size:28px;line-height:1.1}
+p{margin:0 0 1em;text-wrap:pretty}
+.lede{font-size:clamp(18px,1.6vw,21px);line-height:1.55;color:#3d332b;max-width:60ch}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:50px;padding:0 24px;border-radius:999px;border:1px solid transparent;font-weight:600;font-size:15.5px;text-decoration:none;cursor:pointer;transition:transform .2s,background .2s,box-shadow .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-1px)}
+.btn-gold{background:var(--gold);color:#1b1512;box-shadow:0 10px 30px rgba(201,162,78,.32)}
+.btn-gold:hover{background:#d6b262}
+.btn-ghost{border-color:rgba(255,255,255,.5);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.12)}
+.btn-ink{background:var(--ink);color:#fff}
+.btn-line{border-color:var(--ink);color:var(--ink)}
+.btn svg{width:18px;height:18px;flex:none}
+section{scroll-margin-top:84px}
+
+/* ribbon and nav */
+.ribbon{background:var(--night);color:#d9cfbd;font-size:12.5px;letter-spacing:.03em;text-align:center;padding:8px 16px}
+.ribbon b{color:var(--gold);font-weight:600}
+.nav{position:sticky;top:0;z-index:40;background:rgba(246,239,226,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;gap:26px;height:72px}
+.brand{display:flex;align-items:center;gap:14px;line-height:1;text-decoration:none;margin-right:auto}
+.brand img{height:46px;width:auto;flex:none}
+.brand-t{display:flex;flex-direction:column;padding-left:14px;border-left:1px solid var(--line)}
+.brand b{font-family:var(--display);font-size:24px;font-weight:600;letter-spacing:.01em;white-space:nowrap}
+.brand-t span{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:5px;white-space:nowrap}
+.nav a.l{font-size:14.5px;font-weight:500;text-decoration:none;color:#3d332b}
+.nav a.l:hover{color:var(--terra)}
+.nav .btn{min-height:42px;padding:0 18px;font-size:14px}
+@media (max-width:1020px){.nav a.l{display:none}}
+@media (max-width:1180px){.nav-in{gap:18px}.nav .btn-line{display:none}}
+@media (max-width:520px){.brand img{height:38px}.brand{gap:10px}.brand-t{padding-left:10px}.brand b{font-size:18px}.brand-t span{display:none}.nav .btn{padding:0 14px}.nav .btn .w{display:none}.nav-in{gap:12px}}
+
+/* hero */
+.hero{position:relative;color:#fff;background:#17110d;overflow:hidden}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,11,8,.92) 0%,rgba(16,11,8,.74) 38%,rgba(16,11,8,.46) 68%,rgba(16,11,8,.62) 100%),linear-gradient(180deg,rgba(16,11,8,0) 55%,rgba(16,11,8,.8) 100%)}
+.hero-in{position:relative;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:48px;align-items:center;min-height:min(86vh,820px);padding-top:72px;padding-bottom:96px}
+.hero .eyebrow{color:var(--gold)}
+.hero h1{font-size:clamp(46px,6.6vw,98px);margin:18px 0 22px;line-height:.96}
+.hero h1 em{font-style:italic;color:#ecd9a8}
+.hero p.sub{font-size:clamp(17px,1.5vw,20px);line-height:1.6;max-width:54ch;color:#ece4d6;margin-bottom:30px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.hero-note{margin-top:22px;font-size:13.5px;color:#cfc4b2;display:flex;align-items:center;gap:8px}
+.stars{color:var(--gold);letter-spacing:2px}
+.credit{position:absolute;right:14px;bottom:10px;font-size:10.5px;color:rgba(255,255,255,.62);letter-spacing:.02em;z-index:2}
+.credit a{color:inherit}
+
+/* the book in the hero */
+.bookcard{justify-self:center;display:flex;flex-direction:column;align-items:center;gap:26px;text-align:center}
+.book3d{position:relative;width:min(290px,60vw);aspect-ratio:.72;border:0;background:none;padding:0;cursor:pointer;perspective:1500px;-webkit-tap-highlight-color:transparent}
+.book3d-in{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateY(-26deg) rotateX(5deg);transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.book3d:hover .book3d-in,.book3d:focus-visible .book3d-in{transform:rotateY(-36deg) rotateX(5deg) translateY(-8px)}
+.book3d-cover,.book3d-back{position:absolute;inset:0;border-radius:3px 7px 7px 3px;overflow:hidden}
+.book3d-cover{transform:translateZ(15px);background:#241a14;box-shadow:inset 5px 0 10px rgba(0,0,0,.45)}
+.book3d-back{transform:translateZ(-15px);background:#1b130e;box-shadow:0 30px 60px rgba(0,0,0,.6),0 10px 24px rgba(0,0,0,.4)}
+.book3d-edge{position:absolute;top:1.3%;bottom:1.3%;right:-15px;width:30px;transform:rotateY(90deg);background:repeating-linear-gradient(90deg,#f1e8d6 0 2px,#d5c8ae 2px 3px)}
+.book3d-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.book3d-cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,6,.5),rgba(10,8,6,.05) 35%,rgba(10,8,6,.88))}
+.book3d-txt{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;justify-content:space-between;padding:20px 18px 20px 24px;text-align:left;color:#fbf5ea}
+.book3d-tag{align-self:flex-start;font-size:9.5px;letter-spacing:.26em;font-weight:700;border:1px solid currentColor;border-radius:3px;padding:5px 8px}
+.book3d-t{display:block;font-family:var(--display);font-size:33px;line-height:.98;font-weight:600;text-wrap:balance}
+.book3d-s{display:block;font:500 10.5px/1.4 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.bookcard-cap{max-width:300px;font-size:14px;line-height:1.5;color:#e4dac8}
+.bookcard-cap b{display:block;color:#fff;font-size:15px;margin-bottom:4px}
+.pulse{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--gold);margin-right:8px;box-shadow:0 0 0 0 rgba(201,162,78,.7);animation:pulse 2s infinite}
+@keyframes pulse{to{box-shadow:0 0 0 14px rgba(201,162,78,0)}}
+@media (max-width:900px){.hero-in{grid-template-columns:1fr;gap:54px;padding-top:54px;padding-bottom:84px;min-height:0}.bookcard{order:2}.hero-bg::after{background:linear-gradient(180deg,rgba(16,11,8,.82),rgba(16,11,8,.7) 55%,rgba(16,11,8,.86))}}
+
+/* facts */
+.facts{background:var(--night);color:#f1e9da}
+.facts-in{display:grid;grid-template-columns:repeat(5,1fr)}
+.fact{padding:34px 22px;border-left:1px solid rgba(255,255,255,.1)}
+.fact:first-child{border-left:0;padding-left:0}
+.fact b{display:block;font-family:var(--display);font-size:clamp(40px,4.4vw,58px);font-weight:500;line-height:1;color:#ecd9a8}
+.fact span{display:block;margin-top:8px;font-size:13.5px;line-height:1.4;color:#b9b0a0}
+@media (max-width:900px){.facts-in{grid-template-columns:repeat(2,1fr)}.fact{padding:24px 16px;border-left:0;border-top:1px solid rgba(255,255,255,.1)}.fact:first-child{padding-left:16px}.fact:nth-child(-n+2){border-top:0}}
+
+/* sections */
+.sec{padding:clamp(72px,9vw,128px) 0}
+.sec-head{display:grid;gap:16px;margin-bottom:clamp(32px,4vw,56px)}
+.sec.alt{background:var(--paper)}
+
+/* timeline */
+.tl{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,72px);align-items:center}
+.tl-years{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px}
+.tl-years button{border:1px solid var(--line);background:none;border-radius:999px;padding:9px 18px;font-weight:600;font-size:15px;cursor:pointer;font-variant-numeric:tabular-nums;transition:.2s}
+.tl-years button:hover{border-color:var(--ink)}
+.tl-years button[aria-selected=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.tl-year{font-family:var(--display);font-size:clamp(84px,11vw,168px);line-height:.86;color:var(--terra);font-weight:500;letter-spacing:-.03em}
+.tl-year,.fact b,.ev-stats b,.exp-item .n,.yr-big,.big-n,.stat3 b,.yr,.night-step b.t{font-variant-numeric:lining-nums}
+.tl-copy h3{margin:26px 0 12px;font-size:clamp(28px,3vw,38px)}
+.tl-copy p{max-width:48ch;color:#3d332b}
+.tl-fig{position:relative;margin:0;aspect-ratio:4/3;border-radius:6px;overflow:hidden;background:#d9cfbd;box-shadow:0 30px 70px rgba(27,21,18,.22)}
+.tl-fig img{width:100%;height:100%;object-fit:cover;transition:opacity .35s}
+.tl-fig figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 10px;font-size:11.5px;color:#fff;background:linear-gradient(180deg,transparent,rgba(0,0,0,.72))}
+@media (max-width:900px){.tl{grid-template-columns:1fr}}
+
+/* rooms and suites */
+.rooms{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:clamp(28px,4vw,60px);align-items:start}
+.room-grp{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--gold-deep);margin:26px 0 10px}
+.room-grp:first-child{margin-top:0}
+.room-b{display:flex;align-items:baseline;gap:14px;width:100%;text-align:left;background:none;border:0;border-top:1px solid var(--line);padding:13px 12px;cursor:pointer;transition:background .2s,color .2s}
+.room-b b{font-family:var(--display);font-size:25px;font-weight:600;line-height:1.1}
+.room-b span{margin-left:auto;font-size:13.5px;color:var(--muted);white-space:nowrap}
+.room-b:hover{background:rgba(27,21,18,.05)}
+.room-b[aria-selected=true]{background:var(--ink);color:#fff}
+.room-b[aria-selected=true] span{color:#d9cfbd}
+.room-fig{position:relative;margin:0;aspect-ratio:16/9;border-radius:6px;overflow:hidden;background:#d9cfbd;box-shadow:0 30px 70px rgba(27,21,18,.2)}
+.room-fig img{width:100%;height:100%;object-fit:cover;transition:opacity .3s}
+.room-fig figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 18px 12px;font-size:13px;color:#fff;background:linear-gradient(180deg,transparent,rgba(0,0,0,.72))}
+.room-thumbs{display:flex;gap:10px;margin-top:10px}
+.room-thumbs button{width:112px;aspect-ratio:16/9;padding:0;border:2px solid transparent;border-radius:5px;overflow:hidden;background:#d9cfbd;cursor:pointer;opacity:.72}
+.room-thumbs button[aria-pressed=true]{border-color:var(--gold-deep);opacity:1}
+.room-thumbs img{width:100%;height:100%;object-fit:cover}
+.room-info{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;margin-top:24px}
+.room-info h3{font-size:clamp(30px,3vw,40px);flex:1 1 260px}
+.room-feats{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px;flex-basis:100%;order:3}
+.room-feats li{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px;background:#fff}
+@media (max-width:900px){.rooms{grid-template-columns:1fr}.room-view{order:-1}.room-b{padding:11px 8px}.room-b b{font-size:22px}}
+
+/* dining */
+.tables{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:0 0 34px}
+.table-t{position:relative;display:block;aspect-ratio:4/3;border:0;padding:0;border-radius:6px;overflow:hidden;background:#d9cfbd;cursor:pointer;text-align:left;color:#fff}
+.table-t img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.table-t:hover img{transform:scale(1.04)}
+.table-t::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.78))}
+.table-t > span{position:absolute;left:16px;right:16px;bottom:14px;z-index:1;display:block}
+.table-t b{display:block;font-family:var(--display);font-size:26px;font-weight:600;line-height:1.05}
+.table-t i{font-style:normal;font-size:12.5px;letter-spacing:.03em;display:flex;align-items:center;gap:8px;margin-top:6px}
+.table-t em{font-style:normal}
+.table-t .dot.open{box-shadow:0 0 0 4px rgba(47,158,98,.3)}
+@media (max-width:900px){.tables{grid-template-columns:repeat(2,minmax(0,1fr))}.table-t b{font-size:21px}}
+.clock{display:inline-flex;align-items:center;gap:10px;font-size:15px;color:#3d332b;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 16px}
+.dot{width:9px;height:9px;border-radius:50%;background:#b9b1a4;flex:none}
+.dot.open{background:#2f9e62;box-shadow:0 0 0 4px rgba(47,158,98,.18)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 30px}
+.chip{border:1px solid var(--line);background:none;border-radius:999px;padding:9px 16px;font-size:14.5px;font-weight:600;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.venues{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.venue{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:26px 24px 22px;display:flex;flex-direction:column;gap:8px;min-height:208px}
+.sec.alt .venue{background:#fff}
+.venue[hidden]{display:none}
+.venue .k{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep);font-weight:700}
+.venue h3{font-size:27px}
+.venue p{font-size:15px;line-height:1.5;color:#4a4037;margin:0}
+.venue .h{margin-top:auto;padding-top:14px;display:flex;align-items:center;gap:9px;font-size:13.5px;color:#3d332b;border-top:1px solid var(--line)}
+.venue .h b{font-weight:600}
+.venue .h span:last-child{margin-left:auto;color:var(--muted);text-align:right}
+.fine{font-size:13px;color:var(--muted);margin-top:18px}
+.empty{padding:30px;background:#fff;border:1px solid var(--line);border-radius:6px;grid-column:1/-1;color:var(--muted)}
+
+/* experiences */
+.exp{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,5vw,72px);align-items:stretch}
+.exp-fig{position:relative;margin:0;border-radius:6px;overflow:hidden;min-height:520px;background:#d9cfbd}
+.exp-fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s}
+.exp-fig img.is-on{opacity:1}
+.exp-list{display:grid;gap:0;align-content:center}
+.exp-item{display:grid;grid-template-columns:64px 1fr;gap:18px;padding:24px 14px;margin:0 -14px;border-top:1px solid var(--line);cursor:pointer;transition:background .25s}
+.exp-item.is-on{background:rgba(201,162,78,.14)}
+.exp-item:last-child{border-bottom:1px solid var(--line)}
+.exp-item .n{font-family:var(--display);font-size:44px;line-height:.9;color:var(--terra)}
+.exp-item h3{font-size:27px;margin-bottom:6px}
+.exp-item p{margin:0;color:#4a4037;font-size:16px}
+@media (max-width:900px){.exp{grid-template-columns:1fr}.exp-fig{min-height:340px}}
+
+/* lifebook band */
+.band{position:relative;color:#fff;background:#0b1414;overflow:hidden}
+.band-bg{position:absolute;inset:0}
+.band-bg img{width:100%;height:100%;object-fit:cover;opacity:.9}
+.band-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,14,14,.9),rgba(8,14,14,.42))}
+.band-in{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:48px;align-items:center;padding-top:clamp(72px,9vw,120px);padding-bottom:clamp(72px,9vw,120px)}
+.band .eyebrow{color:var(--gold)}
+.band h2{margin:16px 0 20px}
+.band p{color:#dcd3c3;max-width:52ch}
+.band ul{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.band li{display:grid;grid-template-columns:34px 1fr;gap:14px;padding:16px 0;border-top:1px solid rgba(255,255,255,.14);font-size:16px;color:#ece4d6}
+.band li:last-child{border-bottom:1px solid rgba(255,255,255,.14)}
+.band li svg{width:22px;height:22px;color:var(--gold);margin-top:2px}
+.band li b{display:block;color:#fff}
+@media (max-width:900px){.band-in{grid-template-columns:1fr}}
+
+/* events */
+.ev{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(28px,5vw,72px);align-items:center}
+.ev-figs{display:grid;grid-template-columns:1.25fr 1fr;gap:14px;align-items:end}
+.ev-figs figure{position:relative;margin:0;border-radius:6px;overflow:hidden;background:#d9cfbd}
+.ev-figs figure:first-child{aspect-ratio:4/5}
+.ev-figs figure:last-child{aspect-ratio:3/4;margin-bottom:44px}
+.ev-figs img{width:100%;height:100%;object-fit:cover}
+.fc{position:absolute;left:0;right:0;bottom:0;padding:22px 10px 7px;font-size:10.5px;color:rgba(255,255,255,.85);background:linear-gradient(180deg,transparent,rgba(0,0,0,.7))}
+.ev-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:30px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ev-stats div{padding:22px 16px 22px 0}
+.ev-stats div+div{padding-left:20px;border-left:1px solid var(--line)}
+.ev-stats b{display:block;font-family:var(--display);font-size:46px;line-height:1;font-weight:500;color:var(--terra)}
+.ev-stats span{font-size:13.5px;color:var(--muted)}
+@media (max-width:900px){.ev{grid-template-columns:1fr}}
+
+/* cairo */
+.city{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(28px,4vw,56px);align-items:start}
+.groups{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}
+.group h3{font-size:25px;padding-bottom:12px;border-bottom:2px solid var(--gold);margin-bottom:6px}
+.group ul{list-style:none;margin:0;padding:0}
+.group li{padding:10px 0;border-bottom:1px solid var(--line);font-size:15.5px;display:flex;justify-content:space-between;gap:10px}
+.group li i{font-style:normal;color:var(--muted);font-size:13.5px;white-space:nowrap}
+.map{border-radius:6px;overflow:hidden;border:1px solid var(--line);background:#e6dfd0}
+.map iframe{display:block;width:100%;height:340px;border:0}
+.addr{padding:22px 24px;background:#fff;display:grid;gap:6px;font-size:15.5px}
+.addr b{font-family:var(--display);font-size:25px;font-weight:600}
+.addr a{color:var(--terra);font-weight:600;text-decoration:none}
+.addr a:hover{text-decoration:underline}
+@media (max-width:1000px){.city{grid-template-columns:1fr}}
+@media (max-width:640px){.groups{grid-template-columns:1fr}}
+
+/* footer */
+footer{background:var(--night);color:#b9b0a0;font-size:13.5px;line-height:1.6;padding:64px 0 40px}
+.foot{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:44px}
+footer h4{font:700 11.5px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0 0 14px}
+footer a{color:#e7decd}
+footer ul{margin:0;padding-left:16px}
+footer li{margin-bottom:5px}
+.foot-brand b{font-family:var(--display);font-size:30px;color:#fff;font-weight:500;display:block;line-height:1.05;margin-bottom:12px}
+.foot-logo{height:74px;width:auto;margin-bottom:18px;filter:brightness(0) invert(1);opacity:.92}
+.cv-logo{height:3.6em;width:auto;filter:brightness(0) invert(1)}
+.legal{margin-top:40px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);font-size:12.5px;color:#8f887b}
+@media (max-width:900px){.foot{grid-template-columns:1fr}}
+
+/* the LifeBook overlay */
+.lbo{position:fixed;inset:0;z-index:100;display:grid;grid-template-rows:auto minmax(0,1fr);background:radial-gradient(120% 90% at 50% 0%,#253433 0%,#0c1414 62%);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+.lbo.is-open{opacity:1;visibility:visible}
+.lbo-top{display:flex;align-items:center;gap:14px;padding:10px 16px;color:#f1e9da;font-size:14px}
+.lbo-top b{font-family:var(--display);font-size:22px;font-weight:600;letter-spacing:.01em}
+.lbo-top span.t{opacity:.65;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lbo-top .sp{flex:1}
+.lbo-x{display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 14px;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:inherit;cursor:pointer;font-size:13px;font-weight:500}
+.lbo-x:hover{background:rgba(255,255,255,.18)}
+@media (max-width:640px){.lbo-top span.t,.lbo-x.fs{display:none}}
+body.lb-lock{overflow:hidden}
+
+/* LifeBook flipbook engine: a two-page book that turns in 3D on wide screens
+   and one page at a time on phones. Pages are authored as <section class="page">. */
+.fbk{--fb-paper:#fbf7ef;--fb-ink:#1d1a16;--fb-accent:#c9a45c;--fb-bar:#14110e;--pw:300px;--ph:400px;
+  position:relative;width:100%;height:100%;display:grid;grid-template-rows:minmax(0,1fr) auto;
+  -webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+.fbk *{box-sizing:border-box}
+.fbk:focus{outline:none}
+.fbk-win{touch-action:pan-y}
+.fbk-pop img{width:100%;border-radius:10px;margin:4px 0 10px}
+.fbk-pop .cr{font-size:11.5px;opacity:.6}
+.fbk-pop img.fbk-logo{display:block;width:auto;max-width:62%;max-height:64px;object-fit:contain;border-radius:0;margin:0 0 12px}
+.fbk-stage{position:relative;min-height:0;display:grid;place-items:center;overflow:hidden}
+.fbk-win{position:relative;width:calc(var(--pw)*2);height:var(--ph);perspective:2800px;perspective-origin:50% 50%}
+.fbk.is-single .fbk-win{width:var(--pw);clip-path:inset(-14% 0 -14% 0)}
+.fbk-book{position:absolute;top:0;left:0;width:calc(var(--pw)*2);height:var(--ph);transform-style:preserve-3d;
+  transition:transform .75s cubic-bezier(.3,.1,.2,1)}
+.fbk-sheet{position:absolute;top:0;left:50%;width:50%;height:100%;transform-origin:0 50%;transform-style:preserve-3d;
+  transform:translateZ(var(--z,0px)) rotateY(0deg);transition:transform .95s cubic-bezier(.36,.04,.2,1)}
+.fbk-sheet.is-flipped{transform:translateZ(var(--z,0px)) rotateY(-180deg)}
+.fbk.is-booting .fbk-sheet,.fbk.is-booting .fbk-book{transition:none}
+.fbk-face{position:absolute;inset:0;overflow:hidden;background:var(--fb-paper);color:var(--fb-ink);
+  -webkit-backface-visibility:hidden;backface-visibility:hidden;container-type:size;cursor:pointer;
+  box-shadow:0 1px 0 rgba(0,0,0,.08),0 18px 40px rgba(0,0,0,.28)}
+.fbk-face.is-back{transform:rotateY(180deg)}
+.fbk-face::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:5;
+  background:linear-gradient(90deg,rgba(0,0,0,.26),rgba(0,0,0,.06) 4%,rgba(0,0,0,0) 11%)}
+.fbk-face.is-back::after{background:linear-gradient(270deg,rgba(0,0,0,.26),rgba(0,0,0,.06) 4%,rgba(0,0,0,0) 11%)}
+.fbk-face.is-off{pointer-events:none}
+.fbk-pg{position:absolute;inset:0;font-size:2.94cqw;line-height:1.45;overflow:hidden}
+.fbk-pg a,.fbk-pg button,.fbk-pg input,.fbk-pg [data-hot],.fbk-pg [data-goto]{cursor:pointer}
+.fbk-num{position:absolute;bottom:2.2cqw;font-size:2.1cqw;letter-spacing:.12em;opacity:.5;z-index:4;pointer-events:none}
+.fbk-face.is-front .fbk-num{right:4cqw}.fbk-face.is-back .fbk-num{left:4cqw}
+
+/* hotspots */
+.fbk-pg .hot{position:relative;display:inline-flex;align-items:center;gap:.5em;border:0;background:none;font:inherit;color:inherit;padding:0;text-align:left}
+.fbk-pg .hot-dot{position:relative;flex:none;width:1.25em;height:1.25em;border-radius:50%;background:var(--fb-accent);
+  box-shadow:0 0 0 .22em rgba(255,255,255,.75)}
+.fbk-pg .hot-dot::before{content:"+";position:absolute;inset:0;display:grid;place-items:center;font-weight:700;font-size:.95em;line-height:1;color:#fff}
+.fbk-pg .hot-dot::after{content:"";position:absolute;inset:-.35em;border-radius:50%;border:.12em solid var(--fb-accent);animation:fbk-pulse 2.2s ease-out infinite}
+@keyframes fbk-pulse{0%{transform:scale(.7);opacity:.9}100%{transform:scale(1.7);opacity:0}}
+@media (prefers-reduced-motion:reduce){.fbk-pg .hot-dot::after{animation:none}.fbk-sheet,.fbk-book{transition-duration:.01s}}
+
+/* control bar */
+.fbk-bar{display:flex;align-items:center;justify-content:center;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  color:#f4efe6;font:500 13px/1 system-ui,-apple-system,"Segoe UI",sans-serif}
+.fbk-btn{display:inline-flex;align-items:center;gap:7px;height:38px;padding:0 14px;border-radius:999px;border:1px solid rgba(255,255,255,.22);
+  background:rgba(255,255,255,.08);color:inherit;font:inherit;cursor:pointer;white-space:nowrap}
+.fbk-btn:hover{background:rgba(255,255,255,.16)}
+.fbk-btn:disabled{opacity:.3;cursor:default}
+.fbk-btn.is-on{background:var(--fb-accent);border-color:var(--fb-accent);color:#1b1612}
+.fbk-btn svg{width:16px;height:16px;flex:none}
+.fbk-label{min-width:104px;text-align:center;letter-spacing:.06em;opacity:.85;font-variant-numeric:tabular-nums}
+.fbk-range{width:min(26vw,220px);accent-color:var(--fb-accent)}
+@media (max-width:640px){.fbk-range{display:none}.fbk-btn span{display:none}.fbk-btn{padding:0 12px}}
+
+/* contents drawer and popover */
+.fbk-toc,.fbk-pop{position:absolute;z-index:30;background:#fffdf8;color:#1d1a16;box-shadow:0 24px 70px rgba(0,0,0,.45);
+  font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-user-select:text;user-select:text}
+.fbk-toc{top:0;bottom:0;left:0;width:min(340px,86vw);padding:22px 20px;overflow:auto;transform:translateX(-105%);transition:transform .35s ease}
+.fbk-toc.is-open{transform:none}
+.fbk-toc h3{margin:0 0 12px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;opacity:.6}
+.fbk-toc button{display:flex;width:100%;justify-content:space-between;gap:12px;padding:10px 4px;border:0;border-bottom:1px solid rgba(0,0,0,.08);
+  background:none;font:inherit;color:inherit;text-align:left;cursor:pointer}
+.fbk-toc button:hover{color:#8a6420}
+.fbk-toc button i{font-style:normal;opacity:.5;font-variant-numeric:tabular-nums}
+.fbk-pop{left:50%;bottom:76px;width:min(440px,92vw);max-height:70%;overflow:auto;border-radius:16px;padding:22px 22px 20px;
+  transform:translate(-50%,16px);opacity:0;pointer-events:none;transition:transform .28s ease,opacity .28s ease}
+.fbk-pop.is-open{transform:translate(-50%,0);opacity:1;pointer-events:auto}
+.fbk-pop h4{margin:0 0 6px;font-size:20px;line-height:1.2}
+.fbk-pop p{margin:0 0 10px}
+.fbk-pop .fbk-x{position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:50%;border:0;background:rgba(0,0,0,.06);font-size:18px;cursor:pointer}
+.fbk-pop a.fbk-go{display:inline-block;margin-top:4px;padding:10px 16px;border-radius:999px;background:#1d1a16;color:#fff;text-decoration:none;font-weight:600;font-size:14px}
+.fbk-pop .fbk-meta{font-size:13px;letter-spacing:.04em;opacity:.65;margin-bottom:8px}
+.fbk-pop .fbk-note{font-size:13.5px;line-height:1.45;background:#fff1cf;border-radius:8px;padding:9px 11px}
+.fbk-pop a.fbk-go2{display:inline-block;margin:6px 0 0;font-size:13.5px;color:#5d554a}
+.fbk-pop a.fbk-go + a.fbk-go2{margin-left:14px}
+
+/* LifeBook page primitives. Everything is in em, and the page's font size
+   follows the page width (cqw), so a page looks the same at every size. */
+.fbk-pg{font-family:var(--lb-body,"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif);font-size:3.5cqw;line-height:1.46}
+.fbk-pg *{box-sizing:border-box}
+.fbk-pg button{font:inherit;color:inherit}
+.lb-pad{position:absolute;inset:0;padding:2.5em 2.3em 2.9em;display:flex;flex-direction:column;min-height:0}
+.lb-eyebrow{font-size:.7em;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--lb-deep,#8a6420)}
+.lb-h1{font-family:var(--lb-display,Georgia,serif);font-size:2.55em;line-height:1;font-weight:600;margin:.22em 0 .32em;letter-spacing:-.012em;text-wrap:balance}
+.lb-h2{font-family:var(--lb-display,Georgia,serif);font-size:1.55em;line-height:1.08;font-weight:600;margin:0 0 .3em;text-wrap:balance}
+.lb-h3{font-size:.98em;font-weight:700;margin:0 0 .15em}
+.lb-p{margin:0 0 .75em;text-wrap:pretty}
+.lb-lede{font-size:1.1em;line-height:1.4;margin:0 0 .8em;text-wrap:pretty}
+.lb-small{font-size:.8em;line-height:1.4}
+.lb-dim{opacity:.68}
+.lb-rule{width:2.6em;height:.14em;background:var(--fb-accent);border:0;margin:.5em 0 1em}
+.lb-grow{flex:1;min-height:0}
+.lb-photo{position:relative;overflow:hidden;border-radius:.35em;background:#d8cdb8;flex:none}
+.lb-photo img{display:block;width:100%;height:100%;object-fit:cover;-webkit-user-drag:none}
+.lb-credit{font-size:.56em;letter-spacing:.02em;opacity:.62;margin-top:.55em}
+.lb-list{list-style:none;margin:0;padding:0}
+.lb-row{display:flex;align-items:center;gap:.7em;width:100%;padding:.56em 0;border:0;border-bottom:.07em solid rgba(0,0,0,.13);background:none;text-align:left}
+.lb-row:hover .lb-row-t{color:var(--lb-deep,#8a6420)}
+.lb-row-t{font-weight:650;flex:1;min-width:0}
+.lb-row-s{display:block;font-weight:400;font-size:.8em;opacity:.7;line-height:1.3}
+.lb-row-r{font-size:.74em;white-space:nowrap;opacity:.75;font-variant-numeric:tabular-nums;text-align:right}
+.lb-plus{flex:none;width:1.3em;height:1.3em;border-radius:50%;background:var(--fb-accent);color:#fff;display:grid;place-items:center;font-weight:700;font-size:.8em;line-height:1}
+.lb-chip{display:inline-flex;align-items:center;gap:.4em;padding:.38em .8em;border-radius:99em;border:.08em solid rgba(0,0,0,.22);background:none;font-size:.78em;font-weight:600;line-height:1.1}
+.lb-chip.is-on{background:var(--fb-ink);border-color:var(--fb-ink);color:var(--fb-paper)}
+.lb-btn{display:inline-flex;align-items:center;gap:.5em;padding:.62em 1.05em;border-radius:99em;border:0;background:var(--fb-ink);color:var(--fb-paper)!important;font-weight:650;font-size:.82em;text-decoration:none}
+.lb-btn.is-gold{background:var(--fb-accent);color:#1b1612!important}
+.lb-dot{display:inline-block;width:.55em;height:.55em;border-radius:50%;background:#b9b1a4;flex:none}
+.lb-dot.is-open{background:#2f9e62;box-shadow:0 0 0 .2em rgba(47,158,98,.2)}
+.lb-full{position:absolute;inset:0}
+.lb-full img{width:100%;height:100%;object-fit:cover;display:block}
+.lb-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,6,.5) 0%,rgba(10,8,6,.08) 34%,rgba(10,8,6,.3) 58%,rgba(10,8,6,.9) 100%)}
+.lb-on-dark{color:#fbf5ea}
+.lb-on-dark .lb-eyebrow{color:var(--fb-accent)}
+.lb-tag{display:inline-block;font-size:.62em;letter-spacing:.24em;text-transform:uppercase;font-weight:700;padding:.5em .9em;border:.1em solid currentColor;border-radius:.3em}
+.lb-two{display:grid;grid-template-columns:1fr 1fr;gap:.7em}
+.lb-foot{margin-top:auto;padding-top:.8em}
+.page-blank{background:var(--fb-paper)}
+.lb-photo.lb-grow{flex:1 1 0;min-height:0}
+.lb-photo.lb-grow img{position:absolute;inset:0}
+
+#lifebook{--fb-paper:#fbf5e9;--fb-ink:#1f1814;--fb-accent:#c9a24e;--lb-deep:#8a651c;--lb-display:"Cormorant Garamond",Georgia,serif;--lb-body:"DM Sans",system-ui,sans-serif}
+#lifebook .lb-h1,#lifebook .lb-h2{font-weight:600}
+.pg-night{background:#102020;color:#f3ecdd}
+.pg-night .lb-eyebrow{color:var(--fb-accent)}
+.pg-night .lb-row{border-color:rgba(255,255,255,.16)}
+.pg-terra{background:#a4472a;color:#fff6e8}
+.pg-terra .lb-eyebrow{color:#f3d9a0}
+.cv-title{font-family:var(--lb-display);font-size:3.9em;line-height:.92;font-weight:600;margin:.12em 0 .22em;letter-spacing:-.015em;text-wrap:balance}
+.yr-big{font-family:var(--lb-display);font-size:6.2em;line-height:.8;font-weight:500;color:#a4472a;letter-spacing:-.03em;margin:.22em 0 .12em}
+.fbk-pg .hs{color:#fff}
+.waves{position:absolute;inset:0;opacity:.3;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='24' viewBox='0 0 120 24'%3E%3Cpath d='M0 12c15 0 15-8 30-8s15 8 30 8 15-8 30-8 15 8 30 8' fill='none' stroke='%23f3d9a0' stroke-width='1.3'/%3E%3C/svg%3E");background-size:8em 1.6em}
+.hs{position:absolute;display:flex;align-items:center;gap:.5em;border:0;background:rgba(20,15,11,.72);color:#fff;border-radius:99em;padding:.28em .8em .28em .3em;font-size:.76em;font-weight:600;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.icon-row{display:grid;grid-template-columns:2.3em 1fr;gap:.8em;align-items:start;padding:.7em 0;border-top:.07em solid rgba(0,0,0,.13)}
+.icon-row svg{width:1.7em;height:1.7em;color:var(--lb-deep)}
+.icon-row b{display:block}
+.toc{display:flex;width:100%;gap:.6em;align-items:baseline;padding:.36em 0;border:0;border-bottom:.07em dotted rgba(0,0,0,.3);background:none;text-align:left}
+.toc span{flex:1;font-family:var(--lb-display);font-size:1.28em;font-weight:600;line-height:1.1}
+.toc i{font-style:normal;font-size:.8em;opacity:.6;font-variant-numeric:tabular-nums}
+.toc:hover span{color:var(--lb-deep)}
+.yr{font-family:var(--lb-display);font-size:1.5em;font-weight:600;line-height:1;width:3.1em;flex:none;color:var(--lb-deep);font-variant-numeric:tabular-nums}
+.mosaic{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:.5em;flex:1;min-height:0}
+.mosaic button{position:relative;border:0;padding:0;background:#d8cdb8;border-radius:.35em;overflow:hidden;min-height:0}
+.mosaic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mosaic span{position:absolute;left:.6em;bottom:.6em;display:flex;align-items:center;gap:.45em;background:rgba(20,15,11,.72);color:#fff;border-radius:99em;padding:.26em .75em .26em .3em;font-size:.7em;font-weight:600}
+.night-step{display:grid;grid-template-columns:4.2em 1fr;gap:.8em;padding:.72em 0;border-top:.07em solid rgba(255,255,255,.16);opacity:.72}
+.night-step b.t{font-family:var(--lb-display);font-size:1.45em;line-height:1;color:var(--fb-accent);font-weight:600}
+.night-step.is-now{opacity:1}
+.night-step.is-now b.t::after{content:"now";display:inline-block;margin-left:.5em;font:700 .42em/1 var(--lb-body);letter-spacing:.16em;text-transform:uppercase;background:var(--fb-accent);color:#1b1612;padding:.35em .55em;border-radius:.3em;vertical-align:middle}
+.plan-step{display:grid;grid-template-columns:5.3em 1fr;gap:.7em;padding:.55em 0;border-top:.07em solid rgba(0,0,0,.13)}
+.plan-step b.t{font-size:.72em;letter-spacing:.14em;text-transform:uppercase;color:var(--lb-deep);padding-top:.3em}
+.big-n{font-family:var(--lb-display);font-size:8.5em;line-height:.8;font-weight:500;color:var(--fb-accent)}
+.stars-bg{position:absolute;inset:0;opacity:.16;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23f3d9a0' stroke-width='1.4'%3E%3Cpath d='M40 6l9.9 24.1L74 40 49.9 49.9 40 74 30.1 49.9 6 40l24.1-9.9z'/%3E%3Cpath d='M16 16h48v48H16z'/%3E%3Ccircle cx='40' cy='40' r='9'/%3E%3Cpath d='M0 0l16 16M80 0L64 16M0 80l16-16M80 80L64 64'/%3E%3C/g%3E%3C/svg%3E");background-size:5.4em 5.4em}
+.bar{display:grid;grid-template-columns:7.2em 1fr 4em;gap:.7em;align-items:center;padding:.5em 0;font-size:.9em}
+.bar i{display:block;height:.55em;border-radius:99em;background:var(--fb-accent);min-width:.55em}
+.bar span:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:650}
+.stat3{display:grid;grid-template-columns:repeat(3,1fr);gap:.6em;margin:.9em 0}
+.stat3 b{display:block;font-family:var(--lb-display);font-size:2.3em;line-height:1;font-weight:600;color:#a4472a}
+.stat3 span{font-size:.72em;line-height:1.3;display:block;opacity:.75}
+.ad{position:absolute;inset:1.6em;border:.12em dashed rgba(255,246,232,.6);border-radius:.6em;padding:2em 1.8em;display:flex;flex-direction:column}
+.tick{display:flex;align-items:center;gap:.65em;padding:.45em 0;border-bottom:.07em solid rgba(0,0,0,.12);cursor:pointer;font-size:.95em}
+.tick input{appearance:none;-webkit-appearance:none;width:1.25em;height:1.25em;border:.12em solid rgba(0,0,0,.4);border-radius:.3em;margin:0;flex:none;display:grid;place-items:center;cursor:pointer}
+.tick input:checked{background:var(--fb-ink);border-color:var(--fb-ink)}
+.tick input:checked::after{content:"";width:.6em;height:.32em;border-left:.16em solid #fff;border-bottom:.16em solid #fff;transform:rotate(-45deg) translateY(-.08em)}
+.tick i{margin-left:auto;font-style:normal;font-size:.78em;opacity:.6}
+.grp{font-size:.7em;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--lb-deep);margin:.9em 0 .1em}
+.kv{display:grid;grid-template-columns:5.6em 1fr;gap:.8em;padding:.62em 0;border-top:.07em solid rgba(0,0,0,.13);font-size:.95em}
+.kv b{font-size:.74em;letter-spacing:.14em;text-transform:uppercase;color:var(--lb-deep);padding-top:.25em}
+.kv a{color:#a4472a;font-weight:650;text-decoration:none;word-break:break-word}
+.cred{font-size:.68em;line-height:1.45;margin:0;padding-left:1.2em}
+.cred li{margin-bottom:.35em}
+.cred a{color:inherit}
+</style>
+</head>
+<body>
+
+<div class="ribbon"><b>Website proposal.</b> A new site for the Cairo Marriott Hotel, prepared for its owners by IAM360. A preview, not the live site: booking links go to marriott.com.</div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top"><img src="https://cache.marriott.com/content/dam/marriott-digital/mc/global-property-shared/en_us/logo/assets/mc_logo_L.png" alt="Marriott"><span class="brand-t"><b>Cairo Marriott Hotel</b><span>&amp; Omar Khayyam Casino</span></span></a>
+    <a class="l" href="#palace">Palace</a>
+    <a class="l" href="#rooms">Rooms</a>
+    <a class="l" href="#dining">Dining</a>
+    <a class="l" href="#spa">Spa</a>
+    <a class="l" href="#events">Events</a>
+    <a class="l" href="#cairo">Cairo</a>
+    <a class="btn btn-line" href="https://www.marriott.com/en-us/hotels/caieg-cairo-marriott-hotel/overview/" target="_blank" rel="noopener">Check availability</a>
+    <button class="btn btn-ink" data-open-book><span><span class="w">Open the </span>LifeBook</span></button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="hero-bg"><img src="https://cache.marriott.com/is/image/marriotts7prod/mc-caieg-swimming-pool--33726:Wide-Hor?wid=1920" alt="The Gezirah Palace seen across the hotel's pool and palm trees"></div>
+  <div class="wrap hero-in">
+    <div>
+      <div class="eyebrow">Zamalek · Gezira Island · Cairo</div>
+      <h1>A palace on the Nile, built for <em>an empress.</em></h1>
+      <p class="sub">In 1869 Khedive Isma'il built the Gezirah Palace to receive the guests of the Suez Canal opening. Today its staircase, salons and gardens are the heart of the Cairo Marriott Hotel.</p>
+      <div class="hero-actions">
+        <button class="btn btn-gold" data-open-book>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6c-2-1.3-4.5-2-8-2v14c3.500 0 6 .7 8 2 2-1.300 4.500-2 8-2V4c-3.500 0-6 .7-8 2zM12 6v14"/></svg>
+          Open the LifeBook
+        </button>
+        <a class="btn btn-ghost" href="https://www.marriott.com/en-us/hotels/caieg-cairo-marriott-hotel/overview/" target="_blank" rel="noopener">Check availability on marriott.com</a>
+      </div>
+      <div class="hero-note"><span class="stars">★★★★</span> 4.2 out of 5 from 2,627 guest reviews on marriott.com</div>
+    </div>
+    <div class="bookcard">
+      <button class="book3d" data-open-book aria-label="Open the LifeBook, the hotel's interactive guide">
+        <span class="book3d-in">
+          <span class="book3d-back"></span>
+          <span class="book3d-edge"></span>
+          <span class="book3d-cover">
+            <img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-entrance-0252-hor-wide.jpg?downsize=900px:*" alt="">
+            <span class="book3d-txt">
+              <span class="book3d-tag">LIFEBOOK</span>
+              <span><span class="book3d-s">Gezirah Palace</span><span class="book3d-t">The Palace on the Nile</span></span>
+            </span>
+          </span>
+        </span>
+      </button>
+      <div class="bookcard-cap"><b><span class="pulse"></span>Tap the book to open it</b>The hotel's interactive guide. History you can tap, tables that show if they are open right now, a day planner and the city beyond the gates.</div>
+    </div>
+  </div>
+</section>
+
+<div class="facts">
+  <div class="wrap facts-in">
+    <div class="fact"><b>1869</b><span>The year the palace was built</span></div>
+    <div class="fact"><b>1,087</b><span>Rooms in the Gezira and Zamalek towers</span></div>
+    <div class="fact"><b>12</b><span>Restaurants, bars and cafés</span></div>
+    <div class="fact"><b>14</b><span>Treatment rooms at the Saray Spa</span></div>
+    <div class="fact"><b>15</b><span>Event rooms, 1,765 square metres in all</span></div>
+  </div>
+</div>
+
+<section class="sec" id="palace">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">The palace</div>
+      <h2>One building, six lives.</h2>
+      <p class="lede">A royal guest house, a grand hotel, a wartime hospital, a private home, a hotel again and then the Cairo Marriott. Pick a year.</p>
+    </div>
+    <div class="tl">
+      <div class="tl-copy">
+        <div class="tl-years" role="tablist" aria-label="Years"></div>
+        <div class="tl-year" id="tlYear">1869</div>
+        <h3 id="tlTitle"></h3>
+        <p id="tlText"></p>
+      </div>
+      <figure class="tl-fig"><img id="tlImg" alt=""><figcaption id="tlCap"></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt" id="rooms">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Rooms and suites</div>
+      <h2>A balcony of your own.</h2>
+      <p class="lede">Guest rooms and suites in the two towers beside the palace. Every room type the hotel lists has a balcony. Pick one to look inside.</p>
+    </div>
+    <div class="rooms">
+      <div class="room-list" id="roomList" role="tablist" aria-label="Rooms and suites"></div>
+      <div class="room-view">
+        <figure class="room-fig"><img id="roomImg" alt=""><figcaption id="roomCap"></figcaption></figure>
+        <div class="room-thumbs" id="roomThumbs"></div>
+        <div class="room-info">
+          <h3 id="roomName"></h3>
+          <a class="btn btn-ink" href="https://www.marriott.com/en-us/hotels/caieg-cairo-marriott-hotel/rooms/" target="_blank" rel="noopener">See rates on marriott.com</a>
+          <ul class="room-feats" id="roomFeats"></ul>
+        </div>
+      </div>
+    </div>
+    <p class="fine">Room types as listed by the hotel on 15 November 2026. Photographs: Cairo Marriott Hotel.</p>
+  </div>
+</section>
+
+<section class="sec" id="dining">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Eat and drink</div>
+      <h2>Twelve tables. See which are open right now.</h2>
+      <div><span class="clock"><span class="dot open"></span><span id="clock">Cairo time</span></span></div>
+    </div>
+    <div class="tables" id="tables"></div>
+    <div class="chips" id="chips"></div>
+    <div class="venues" id="venues"></div>
+    <p class="fine">At any hour there is also In Room Dining and the M Club lounge. Hours as listed by the hotel on 14 November 2026. Please confirm with the hotel before you go.</p>
+  </div>
+</section>
+
+<section class="sec alt" id="spa">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Spa, pool and the palace tour</div>
+      <h2>Slow hours.</h2>
+    </div>
+    <div class="exp">
+      <figure class="exp-fig" id="expFig">
+        <img class="is-on" src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-relaxation-area-6733-hor-wide.jpg?downsize=1200px:*" alt="The relaxation area of the Saray Spa" loading="lazy">
+        <img src="https://cache.marriott.com/is/image/marriotts7prod/mc-caieg-swimming-pool-2-14636:Wide-Hor?wid=1280" alt="The hotel pool beside the palace" loading="lazy">
+        <img src="https://cache.marriott.com/is/image/marriotts7prod/mc-caieg-central-balcony--30407:Wide-Hor?wid=1280" alt="The central balcony of the palace" loading="lazy">
+        <img src="https://cache.marriott.com/is/image/marriotts7prod/mc-caieg-kids-club--42319:Wide-Hor?wid=1280" alt="The Kids Club" loading="lazy">
+      </figure>
+      <div class="exp-list" id="expList">
+        <div class="exp-item is-on" tabindex="0"><div class="n">01</div><div><h3>The Saray Spa</h3><p>Fourteen treatment rooms, with a Moroccan hammam, a Turkish hammam and rooms for couples.</p></div></div>
+        <div class="exp-item" tabindex="0"><div class="n">02</div><div><h3>The pool and the whirlpool</h3><p>The Waves Snack Bar serves the pool from 10 AM to 6:30 PM. There is a fitness centre for the days you want one.</p></div></div>
+        <div class="exp-item" tabindex="0"><div class="n">03</div><div><h3>The Palace Tour</h3><p>A hotel associate walks you through the palace and its story. The concierge has the times.</p></div></div>
+        <div class="exp-item" tabindex="0"><div class="n">04</div><div><h3>The Kids Club</h3><p>A place of their own for the hotel's younger guests.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="guide">
+  <div class="band-bg"><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-wedding-0263-hor-wide.jpg?downsize=1920px:*" alt="" loading="lazy"></div>
+  <div class="wrap band-in">
+    <div>
+      <div class="eyebrow">The LifeBook</div>
+      <h2>The whole palace in one book.</h2>
+      <p>Twenty-two pages you can turn on a phone, a tablet or the screen in your room. It reads itself aloud, knows what is open, and plans your day around the hotel.</p>
+      <p style="margin-top:26px"><button class="btn btn-gold" data-open-book>Open the LifeBook</button></p>
+    </div>
+    <ul>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg><span><b>Tap the gold dots</b>Stories, hours and photographs sit behind every dot on the page.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>Open now, in Cairo time</b>Each restaurant and bar shows whether it is open at this minute.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h4l5 4V6L8 10H4z"/><path d="M17 9a4 4 0 010 6"/></svg><span><b>Listen</b>One button reads the open pages aloud.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg><span><b>Plan a day, keep a list</b>Choose a mood for a ready-made day, tick the sights you want, and send the list to the concierge.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec alt" id="events">
+  <div class="wrap ev">
+    <div>
+      <div class="sec-head" style="margin-bottom:0">
+        <div class="eyebrow">Weddings and events</div>
+        <h2>Make an entrance.</h2>
+        <p class="lede">Come down the grand staircase. Say the words in the palace gardens. Dine in a ballroom, then take the party to the rooftop and the view.</p>
+      </div>
+      <div class="ev-stats">
+        <div><b>15</b><span>event rooms</span></div>
+        <div><b>1,765</b><span>square metres in all</span></div>
+        <div><b>806</b><span>guests in the largest room</span></div>
+      </div>
+      <a class="btn btn-ink" href="https://www.marriott.com/en-us/hotels/caieg-cairo-marriott-hotel/events/" target="_blank" rel="noopener">Plan an event on marriott.com</a>
+    </div>
+    <div class="ev-figs">
+      <figure><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-balcony-0261-hor-wide.jpg?downsize=1280px:*" alt="A terrace dressed for a wedding dinner above the Nile" loading="lazy"></figure>
+      <figure><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-eugenie-0195-hor-wide.jpg?downsize=1100px:*" alt="A palace salon set for dinner under a chandelier" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="cairo">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">The city</div>
+      <h2>Cairo from the island.</h2>
+      <p class="lede">The hotel stands on Gezira Island, with the old city on one bank and the road to the pyramids on the other.</p>
+    </div>
+    <div class="city">
+      <div class="groups">
+        <div class="group"><h3>On the island</h3><ul><li>Cairo Opera House</li><li>Cairo Tower</li><li>Zamalek Art Gallery</li><li>Aquarium Grotto Garden</li></ul></div>
+        <div class="group"><h3>Across the river</h3><ul><li>Egyptian Museum</li><li>Museum of Islamic Art</li><li>National Museum of Egyptian Civilization</li><li>Gayer-Anderson Museum</li><li>Hanging Church</li><li>Ben Ezra Synagogue</li></ul></div>
+        <div class="group"><h3>Giza</h3><ul><li>Pyramids of Giza</li><li>The Sphinx</li><li>Sound and Light show</li><li>Grand Egyptian Museum</li><li>Pharaonic Village</li><li>Giza Zoo <i>5.1 km</i></li></ul></div>
+      </div>
+      <div class="map">
+        <iframe title="Map of Gezira Island showing the hotel" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=31.2107%2C30.0484%2C31.2387%2C30.0655&amp;layer=mapnik&amp;marker=30.05694%2C31.22472"></iframe>
+        <div class="addr">
+          <b>Cairo Marriott Hotel</b>
+          <span>16 Saray El Gezira Street, Zamalek, Cairo 11211, Egypt</span>
+          <span><a href="tel:+20227283000">+20 2-27283000</a></span>
+          <span><a href="mailto:mhrs.caieg.concierge@marriott.com">mhrs.caieg.concierge@marriott.com</a></span>
+          <span><a href="https://www.google.com/maps/search/?api=1&amp;query=Cairo+Marriott+Hotel+16+Saray+El+Gezira+Street+Zamalek" target="_blank" rel="noopener">Open in Google Maps</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="foot-brand">
+        <img class="foot-logo" src="https://cache.marriott.com/content/dam/marriott-digital/mc/global-property-shared/en_us/logo/assets/mc_logo_L.png" alt="Marriott" loading="lazy">
+        <b>Cairo Marriott Hotel &amp; Omar Khayyam Casino</b>
+        <p>A proposal for the hotel's new website, with its LifeBook interactive guide. Prepared for the hotel's owners by IAM360, November 2026.</p>
+        <p>This is a design preview, not the live site, and Marriott International has not reviewed it. The Marriott name and logo and the hotel's photographs belong to their owners and are shown here for this presentation only. To book, use <a href="https://www.marriott.com/en-us/hotels/caieg-cairo-marriott-hotel/overview/" target="_blank" rel="noopener">marriott.com</a>.</p>
+      </div>
+      <div>
+        <h4>Where the facts come from</h4>
+        <ul>
+          <li>Dining, hours, spa, events, address, rating and nearby places: the hotel's pages on <a href="https://www.marriott.com/en-us/hotels/caieg-cairo-marriott-hotel/overview/" target="_blank" rel="noopener">marriott.com</a>, read on 14 November 2026.</li>
+          <li>Room types: the hotel's <a href="https://www.marriott.com/en-us/hotels/caieg-cairo-marriott-hotel/rooms/" target="_blank" rel="noopener">rooms page</a>, read on 15 November 2026.</li>
+          <li>History and room count: <a href="https://en.wikipedia.org/wiki/Cairo_Marriott_Hotel" target="_blank" rel="noopener">Wikipedia, "Cairo Marriott Hotel"</a>, read on 14 November 2026.</li>
+          <li>Map: <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>.</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Photographs</h4>
+        <p>The photographs of the hotel today and the Marriott logo are the hotel's own, from marriott.com, and load from Marriott's servers. The historic photographs and the grand staircase are from Wikimedia Commons:</p>
+        <ul>
+<li>The Gezireh Palace, 19th century: <a href="https://commons.wikimedia.org/wiki/File:F%C3%A9lix_Bonfils_-_The_Gezireh_Palace_in_Cairo,_Egypt.jpg" target="_blank" rel="noopener">Félix Bonfils</a>, Public domain.</li>
+<li>The palace from Gezireh Park, lantern slide: <a href="https://commons.wikimedia.org/wiki/File:Egypt,_Gezireh_Park,_The_Palace,_Cairo.jpg" target="_blank" rel="noopener">Brooklyn Museum</a>, no known copyright restrictions.</li>
+<li>Entrance to the Gezira Palace hospital, about 1914 to 1918: <a href="https://commons.wikimedia.org/wiki/File:Entrance_to_Gezira_Palace_hospital,_Cairo_-_Photograph_taken_by_J_M_(21455694928).jpg" target="_blank" rel="noopener">National Library of New Zealand</a>, no known copyright restrictions.</li>
+<li>The Gezireh Palace arcade, 19th century: <a href="https://commons.wikimedia.org/wiki/File:F%C3%A9lix_Bonfils_-_Gazirah_Palace_in_Cairo.jpg" target="_blank" rel="noopener">Félix Bonfils</a>, Public domain.</li>
+<li>The Gezireh Palace, 19th century: <a href="https://commons.wikimedia.org/wiki/File:Le_Caire,_Palais_de_Gezireh,_RP-F-F16236.jpg" target="_blank" rel="noopener">Rijksmuseum</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a>, cropped.</li>
+<li>The grand staircase: <a href="https://commons.wikimedia.org/wiki/File:Cairo_Marriott_Hotel_-_Zamalek-4508884060.jpg" target="_blank" rel="noopener">flyvancity</a>, <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener">CC BY-SA 2.0</a>, cropped.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">Design preview. The words on this page were written for it. Check hours and prices with the hotel.</div>
+  </div>
+</footer>
+
+<!-- The LifeBook -->
+<div class="lbo" id="lbo" aria-hidden="true">
+  <div class="lbo-top">
+    <b>LifeBook</b><span class="t">The Palace on the Nile · Cairo Marriott Hotel · proposal edition</span><span class="sp"></span>
+    <button class="lbo-x fs" id="lbFs">Full screen</button>
+    <button class="lbo-x" id="lbClose" aria-label="Close the LifeBook">Close ✕</button>
+  </div>
+  <div id="lifebook" data-aspect="0.72">
+
+    <!-- 1 cover -->
+    <section class="page" data-title="Cover">
+      <div class="lb-full"><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-entrance-0252-hor-wide.jpg?downsize=1400px:*" alt=""><div class="lb-shade" style="background:linear-gradient(180deg,rgba(10,8,6,.62) 0%,rgba(10,8,6,.12) 26%,rgba(10,8,6,.5) 50%,rgba(10,8,6,.94) 100%)"></div></div>
+      <div class="lb-pad lb-on-dark">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start"><img class="cv-logo" src="https://cache.marriott.com/content/dam/marriott-digital/mc/global-property-shared/en_us/logo/assets/mc_logo_L.png" alt="Marriott"><span class="lb-tag">LifeBook</span></div>
+        <div class="lb-foot">
+          <div class="lb-eyebrow">Cairo Marriott Hotel</div>
+          <div class="cv-title">The Palace on the Nile</div>
+          <p class="lb-lede" style="max-width:22em">An interactive guide to the palace, its rooms, its tables, its spa and the city beyond the gates.</p>
+          <div class="lb-small" style="display:flex;justify-content:space-between;align-items:center;margin-top:1.2em" data-nospeak><span>Tap to open</span><span style="letter-spacing:.14em;text-transform:uppercase">Proposal edition</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 welcome -->
+    <section class="page" data-title="How this book works">
+      <div class="lb-pad">
+        <div class="lb-eyebrow">Welcome</div>
+        <h2 class="lb-h1">This book answers back.</h2>
+        <p class="lb-lede">Turn the page with a tap, a swipe or the arrow keys. Where you see a gold dot, there is more behind it.</p>
+        <div style="margin-top:.4em">
+          <div class="icon-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg><div><b>Gold dots</b><span class="lb-small lb-dim">Stories, hours, photographs and links.</span></div></div>
+          <div class="icon-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h4l5 4V6L8 10H4z"/><path d="M17 9a4 4 0 010 6"/></svg><div><b>Listen</b><span class="lb-small lb-dim">The button below reads the open pages aloud.</span></div></div>
+          <div class="icon-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Open now</b><span class="lb-small lb-dim">A green dot means the place is open at this minute in Cairo.</span></div></div>
+          <div class="icon-row" style="border-bottom:.07em solid rgba(0,0,0,.13)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg><div><b>Your own day</b><span class="lb-small lb-dim">Pick a mood on page 13. Tick your sights on pages 18 and 19.</span></div></div>
+        </div>
+        <p class="lb-small lb-dim lb-foot">A proposal edition. Hours and facts are from the hotel's public pages on 14 and 15 November 2026.</p>
+      </div>
+    </section>
+
+    <!-- 3 contents -->
+    <section class="page" data-title="Contents">
+      <div class="lb-pad">
+        <div class="lb-eyebrow">Contents</div>
+        <h2 class="lb-h1" style="margin-bottom:.5em">Inside</h2>
+        <button class="toc" data-goto="4"><span>Built for an empress</span><i>4</i></button>
+        <button class="toc" data-goto="6"><span>Walk the palace</span><i>6</i></button>
+        <button class="toc" data-goto="8"><span>Rooms and suites</span><i>8</i></button>
+        <button class="toc" data-goto="10"><span>Eat and drink</span><i>10</i></button>
+        <button class="toc" data-goto="12"><span>Tonight at the palace</span><i>12</i></button>
+        <button class="toc" data-goto="13"><span>Plan your day</span><i>13</i></button>
+        <button class="toc" data-goto="14"><span>The Saray Spa and the pool</span><i>14</i></button>
+        <button class="toc" data-goto="16"><span>Weddings and events</span><i>16</i></button>
+        <button class="toc" data-goto="18"><span>Cairo beyond the gates</span><i>18</i></button>
+        <button class="toc" data-goto="20"><span>Good to know</span><i>20</i></button>
+        <div class="lb-photo lb-grow" style="margin-top:1.2em"><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-garden-0253-hor-wide.jpg?downsize=1100px:*" alt="Statues in the palace gardens"></div>
+      </div>
+    </section>
+
+    <!-- 4 1869 -->
+    <section class="page" data-title="Built for an empress">
+      <div class="lb-pad">
+        <button class="lb-photo" data-hot="ph30" style="height:38%;border:0;padding:0;width:100%"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/F%C3%A9lix_Bonfils_-_The_Gezireh_Palace_in_Cairo%2C_Egypt.jpg/960px-F%C3%A9lix_Bonfils_-_The_Gezireh_Palace_in_Cairo%2C_Egypt.jpg" alt="The Gezireh Palace in the 19th century"><span class="hs" style="left:.8em;bottom:.8em"><span class="lb-plus">+</span>The photograph</span></button>
+        <div class="yr-big">1869</div>
+        <h2 class="lb-h1" style="font-size:2.2em">Built for an empress</h2>
+        <p class="lb-p">Khedive Isma'il wanted a palace fit for his guests at the opening of the Suez Canal. Among them were Napoleon III and Empress Eugénie of France.</p>
+        <p class="lb-p">He gave the work to the architect Carl von Diebitsch.</p>
+        <button class="hot lb-foot" data-hot="brief"><span class="hot-dot"></span><b>What the Khedive asked for</b></button>
+      </div>
+    </section>
+
+    <!-- 5 timeline -->
+    <section class="page" data-title="One building, six lives">
+      <div class="lb-pad">
+        <div class="lb-eyebrow">After the party</div>
+        <h2 class="lb-h1" style="font-size:2.2em">One building, six lives</h2>
+        <div class="lb-list" style="margin-top:.4em">
+          <button class="lb-row" data-hot="y1880"><span class="yr">1880</span><span class="lb-row-t">Seized<span class="lb-row-s">The Khedive's creditors take the palace.</span></span><span class="lb-plus">+</span></button>
+          <button class="lb-row" data-hot="y1894"><span class="yr">1894</span><span class="lb-row-t">A grand hotel<span class="lb-row-s">The Ghezireh Palace Hotel opens in October.</span></span><span class="lb-plus">+</span></button>
+          <button class="lb-row" data-hot="y1914"><span class="yr">1914</span><span class="lb-row-t">A hospital<span class="lb-row-s">No. 2 Australian General Hospital.</span></span><span class="lb-plus">+</span></button>
+          <button class="lb-row" data-hot="y1919"><span class="yr">1919</span><span class="lb-row-t">A home again<span class="lb-row-s">Habib Lotfallah buys it as a residence.</span></span><span class="lb-plus">+</span></button>
+          <button class="lb-row" data-hot="y1962"><span class="yr">1962</span><span class="lb-row-t">The Omar Khayyam<span class="lb-row-s">A hotel once more, under a new name.</span></span><span class="lb-plus">+</span></button>
+          <button class="lb-row" data-hot="y1982"><span class="yr">1982</span><span class="lb-row-t">The Cairo Marriott<span class="lb-row-s">Two towers and a grand reopening.</span></span><span class="lb-plus">+</span></button>
+        </div>
+        <p class="lb-small lb-dim" style="margin:.8em 0 .7em">Tap a year for the story.</p>
+        <div class="lb-photo lb-grow"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Le_Caire%2C_Palais_de_Gezireh%2C_RP-F-F16236.jpg/960px-Le_Caire%2C_Palais_de_Gezireh%2C_RP-F-F16236.jpg" alt="The Gezireh Palace in the 19th century"></div>
+        <div class="lb-credit" data-nospeak>The Gezireh Palace, 19th century. Rijksmuseum, CC0.</div>
+      </div>
+    </section>
+
+    <!-- 6 walk the palace -->
+    <section class="page" data-title="Walk the palace">
+      <div class="lb-photo" style="position:absolute;inset:0 0 44% 0;border-radius:0"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Cairo_Marriott_Hotel_-_Zamalek-4508884060.jpg/960px-Cairo_Marriott_Hotel_-_Zamalek-4508884060.jpg" alt="The grand staircase">
+        <button class="hs" data-hot="stairs" style="left:38%;top:44%"><span class="lb-plus">+</span>The grand staircase</button>
+        <button class="hs" data-hot="newel" style="left:6%;top:16%"><span class="lb-plus">+</span>Look closer</button>
+      </div>
+      <div class="lb-pad" style="top:56%;padding-top:1.6em">
+        <div class="lb-eyebrow">The Palace Tour</div>
+        <h2 class="lb-h2" style="font-size:1.9em">Walk the palace</h2>
+        <p class="lb-p">A hotel associate leads the tour through the palace and tells its story. Ask the concierge when the next one leaves.</p>
+        <div style="display:flex;gap:.6em;flex-wrap:wrap;align-items:center"><a class="lb-btn" href="mailto:mhrs.caieg.concierge@marriott.com?subject=Palace%20Tour">Email the concierge</a></div>
+        <div class="lb-credit lb-foot" data-nospeak>Photo: flyvancity, CC BY-SA 2.0</div>
+      </div>
+    </section>
+
+    <!-- 7 gallery -->
+    <section class="page" data-title="Look up">
+      <div class="lb-pad">
+        <div class="lb-eyebrow">The palace in four pictures</div>
+        <h2 class="lb-h2" style="font-size:1.9em;margin-bottom:.6em">Look up</h2>
+        <div class="mosaic">
+          <button data-hot="g1"><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-entrance-0252-hor-wide.jpg?downsize=900px:*" alt="The arcade"><span><b class="lb-plus">+</b>The arcade</span></button>
+          <button data-hot="g8"><img src="https://cache.marriott.com/is/image/marriotts7prod/mc-caieg-central-balcony--30407:Wide-Hor?wid=900" alt="The central balcony"><span><b class="lb-plus">+</b>The balcony</span></button>
+          <button data-hot="g10"><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-eugenie-0195-hor-wide.jpg?downsize=900px:*" alt="A salon"><span><b class="lb-plus">+</b>A salon</span></button>
+          <button data-hot="g19"><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-entrance-0238-hor-wide.jpg?downsize=900px:*" alt="The lions at the door"><span><b class="lb-plus">+</b>The lions</span></button>
+        </div>
+        <div class="lb-credit" data-nospeak>Tap a picture to see it larger.</div>
+      </div>
+    </section>
+
+    <!-- 8 rooms -->
+    <section class="page" data-title="Rooms">
+      <div class="lb-photo" style="position:absolute;inset:0 0 70% 0;border-radius:0"><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-guestroom-7786-hor-wide.jpg?downsize=1200px:*" alt="A Deluxe King room with a view of the Nile"></div>
+      <div class="lb-pad" style="top:30%;padding-top:1.2em">
+        <div class="lb-eyebrow">Rooms</div>
+        <h2 class="lb-h1" style="font-size:2.1em">A balcony of your own</h2>
+        <div class="lb-list">
+          <button class="lb-row" data-hot="rm1"><span class="lb-row-t">Standard Limited View<span class="lb-row-s">1 King or 2 Double · 1st or 2nd floor</span></span><span class="lb-plus">+</span></button>
+          <button class="lb-row" data-hot="rm2"><span class="lb-row-t">Deluxe<span class="lb-row-s">2 Double · Balcony</span></span><span class="lb-plus">+</span></button>
+          <button class="lb-row" data-hot="rm3"><span class="lb-row-t">Deluxe Garden<span class="lb-row-s">1 King or 2 Double · Balcony</span></span><span class="lb-plus">+</span></button>
+          <button class="lb-row" data-hot="rm4"><span class="lb-row-t">Deluxe Nile View<span class="lb-row-s">2 Double · Balcony</span></span><span class="lb-plus">+</span></button>
+          <button class="lb-row" data-hot="rm5"><span class="lb-row-t">Executive Level<span class="lb-row-s">1 King or 2 Double · High floor</span></span><span class="lb-plus">+</span></button>
+        </div>
+        <p class="lb-small lb-dim lb-foot">Tap a room to look inside.</p>
+      </div>
+    </section>
+
+    <!-- 9 suites -->
+    <section class="page pg-night" data-title="Suites">
+      <div class="lb-photo" style="position:absolute;inset:0 0 62% 0;border-radius:0"><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-royal-0165-hor-wide.jpg?downsize=1200px:*" alt="The sitting room of the Royal Suite"></div>
+      <div class="lb-pad" style="top:38%;padding-top:1.3em">
+        <div class="lb-eyebrow">Suites</div>
+        <h2 class="lb-h1" style="font-size:2.1em">Room to receive</h2>
+        <div class="lb-list">
+          <button class="lb-row" data-hot="rm6"><span class="lb-row-t">Diplomatic Suite<span class="lb-row-s">1 King · Balcony</span></span><span class="lb-plus">+</span></button>
+          <button class="lb-row" data-hot="rm7"><span class="lb-row-t">Ambassador Suite<span class="lb-row-s">1 King · Balcony</span></span><span class="lb-plus">+</span></button>
+          <button class="lb-row" data-hot="rm8"><span class="lb-row-t">Royal Suite<span class="lb-row-s">1 King · Balcony · Whirlpool</span></span><span class="lb-plus">+</span></button>
+          <button class="lb-row" data-hot="rm9"><span class="lb-row-t">Presidential Suite<span class="lb-row-s">1 King · Balcony</span></span><span class="lb-plus">+</span></button>
+        </div>
+        <div class="lb-foot"><a class="lb-btn is-gold" href="https://www.marriott.com/en-us/hotels/caieg-cairo-marriott-hotel/rooms/" target="_blank" rel="noopener">See rates on marriott.com</a></div>
+      </div>
+    </section>
+
+    <!-- 8 dining 1 -->
+    <section class="page" data-title="Eat and drink">
+      <div class="lb-pad">
+        <div class="lb-eyebrow">Eat and drink</div>
+        <h2 class="lb-h1" style="font-size:2.2em">Twelve tables, one palace</h2>
+        <p class="lb-small" style="display:flex;align-items:center;gap:.6em;margin:0 0 .6em"><span class="lb-dot is-open"></span><span data-clock>Cairo time</span></p>
+        <div class="grp">Restaurants</div>
+        <div class="lb-list" data-venues="restaurant"></div>
+        <p class="lb-small lb-dim lb-foot">Green means open now. Tap a table for its hours.</p>
+      </div>
+    </section>
+
+    <!-- 9 dining 2 -->
+    <section class="page" data-title="Bars, lounges and cafés">
+      <div class="lb-pad">
+        <div class="grp" style="margin-top:0">Bars and lounges</div>
+        <div class="lb-list" data-venues="bar"></div>
+        <div class="grp">Cafés and the pool</div>
+        <div class="lb-list" data-venues="cafe"></div>
+        <div class="grp">At any hour</div>
+        <div class="lb-list" data-venues="always"></div>
+      </div>
+    </section>
+
+    <!-- 10 tonight -->
+    <section class="page pg-night" data-title="Tonight at the palace">
+      <div class="lb-pad">
+        <div class="lb-eyebrow">After dark</div>
+        <h2 class="lb-h1" style="font-size:2.3em">Tonight at the palace</h2>
+        <div id="night" style="margin-top:.3em">
+          <div class="night-step" data-from="1080" data-to="1200"><b class="t">6 PM</b><div><b>Dinner opens</b><div class="lb-small lb-dim">JW Steakhouse, Ristorante Tuscany and The Egyptian Nights. Harry's Pub and the Billiard Bar open too.</div></div></div>
+          <div class="night-step" data-from="1200" data-to="1410"><b class="t">8 PM</b><div><b>The pianist sits down</b><div class="lb-small lb-dim">At The Lounge, every evening until 11:30.</div></div></div>
+          <div class="night-step" data-from="1410" data-to="1500"><b class="t">12 AM</b><div><b>The restaurants close</b><div class="lb-small lb-dim">Harry's Pub keeps pouring until 1.</div></div></div>
+          <div class="night-step" data-from="1500" data-to="1560"><b class="t">2 AM</b><div><b>Last call</b><div class="lb-small lb-dim">At the Billiard Bar, The Egyptian Nights and the Garden Promenade Cafe.</div></div></div>
+          <div class="night-step" data-from="120" data-to="360" style="border-bottom:.07em solid rgba(255,255,255,.16)"><b class="t">Late</b><div><b>Still hungry</b><div class="lb-small lb-dim">The Bakery, The Lounge and room service never close.</div></div></div>
+        </div>
+        <p class="lb-small lb-dim lb-foot" data-clock>Cairo time</p>
+      </div>
+    </section>
+
+    <!-- 11 plan your day -->
+    <section class="page" data-title="Plan your day">
+      <div class="lb-pad">
+        <div class="lb-eyebrow">Plan your day</div>
+        <h2 class="lb-h1" style="font-size:2.2em">What kind of day?</h2>
+        <div style="display:flex;flex-wrap:wrap;gap:.45em;margin:.2em 0 .9em" id="moods">
+          <button class="lb-chip is-on" data-mood="palace">Palace day</button>
+          <button class="lb-chip" data-mood="family">With children</button>
+          <button class="lb-chip" data-mood="night">Night in</button>
+          <button class="lb-chip" data-mood="first">First visit</button>
+        </div>
+        <div id="plan"></div>
+        <p class="lb-small lb-dim lb-foot">Built from the hotel's listed hours.</p>
+      </div>
+    </section>
+
+    <!-- 12 spa -->
+    <section class="page pg-night" data-title="The Saray Spa">
+      <div class="lb-photo" style="position:absolute;inset:0 0 68% 0;border-radius:0"><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-relaxation-area-6733-hor-wide.jpg?downsize=1200px:*" alt="The relaxation area of the Saray Spa"></div>
+      <div class="lb-pad" style="top:32%;padding-top:1.3em">
+        <div class="lb-eyebrow">The Saray Spa</div>
+        <div style="display:flex;align-items:flex-end;gap:.8em;margin:.5em 0 .7em"><span class="big-n" style="font-size:6.4em">14</span><span style="font-family:var(--lb-display);font-size:1.6em;line-height:1.05;padding-bottom:.15em">treatment<br>rooms</span></div>
+        <p class="lb-lede">Steam, stone and quiet, in the middle of Cairo.</p>
+        <div class="lb-list">
+          <button class="lb-row" data-hot="spa1" data-title="Moroccan Hammam" data-body="One of the spa's fourteen treatment rooms is a Moroccan hammam. Ask the spa or the concierge for the treatment list and times."><span class="lb-row-t">Moroccan Hammam</span><span class="lb-plus">+</span></button>
+          <button class="lb-row" data-hot="spa2" data-title="Turkish Hammam" data-img="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-turkish-hammam-6738-hor-wide.jpg?downsize=960px:*" data-body="The spa also has a Turkish hammam. Ask the spa or the concierge for the treatment list and times."><span class="lb-row-t">Turkish Hammam</span><span class="lb-plus">+</span></button>
+          <button class="lb-row" data-hot="spa3" data-title="Rooms for couples" data-body="Some of the treatment rooms are made for two. Ask the spa to hold one when you book."><span class="lb-row-t">Rooms for couples</span><span class="lb-plus">+</span></button>
+        </div>
+        <div class="lb-foot"><a class="lb-btn is-gold" href="mailto:mhrs.caieg.concierge@marriott.com?subject=Saray%20Spa">Ask about a treatment</a></div>
+      </div>
+    </section>
+
+    <!-- 13 pool and families -->
+    <section class="page" data-title="The pool and family days">
+      <div style="position:absolute;inset:0 0 70% 0;background:#1d4744;color:#f3ecdd;overflow:hidden">
+        <div class="lb-full"><img src="https://cache.marriott.com/is/image/marriotts7prod/mc-caieg-swimming-pool-2-14636:Wide-Hor?wid=1280" alt="The hotel pool beside the palace"><div class="lb-shade" style="background:linear-gradient(180deg,rgba(10,8,6,.1) 0%,rgba(10,8,6,.5) 45%,rgba(10,8,6,.88) 100%)"></div></div>
+        <div class="lb-pad" style="justify-content:flex-end;padding-bottom:1.3em"><div class="lb-eyebrow" style="color:var(--fb-accent)">The pool</div><h2 class="lb-h1" style="margin-bottom:0">Pool days</h2></div>
+      </div>
+      <div class="lb-pad" style="top:30%;padding-top:1.4em">
+        <p class="lb-p">A swimming pool, a whirlpool and a fitness centre. The hotel also runs a Kids Club for younger guests.</p>
+        <div class="lb-list" data-venues="pool" style="border-top:.07em solid rgba(0,0,0,.13)"></div>
+        <div class="grp" style="margin-top:1.3em">Family outings, by distance</div>
+        <div style="margin-top:.2em">
+          <div class="bar"><span>Giza Zoo</span><i style="width:17%"></i><span>5.1 km</span></div>
+          <div class="bar"><span>Crazy Water</span><i style="width:72%"></i><span>21.8 km</span></div>
+          <div class="bar"><span>Dream Park</span><i style="width:93%"></i><span>28.3 km</span></div>
+          <div class="bar"><span>Magic Land</span><i style="width:100%"></i><span>30.3 km</span></div>
+        </div>
+        <p class="lb-small lb-dim lb-foot">Distances as listed by the hotel.</p>
+      </div>
+    </section>
+
+    <!-- 14 weddings -->
+    <section class="page" data-title="Weddings and events">
+      <div class="lb-photo" style="position:absolute;inset:0 0 58% 0;border-radius:0"><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-balcony-0261-hor-wide.jpg?downsize=1200px:*" alt="A terrace dressed for a wedding dinner above the Nile"></div>
+      <div class="lb-pad" style="top:42%;padding-top:1.5em">
+        <div class="lb-eyebrow">Weddings and events</div>
+        <h2 class="lb-h1" style="font-size:2.2em">Make an entrance</h2>
+        <p class="lb-p">Come down the grand staircase. Say the words in the palace gardens. Dine in a ballroom, then take the party to the rooftop and the view.</p>
+        <div class="stat3"><div><b>15</b><span>event rooms</span></div><div><b>1,765</b><span>square metres in all</span></div><div><b>806</b><span>guests in the largest room</span></div></div>
+        <div class="lb-foot"><a class="lb-btn" href="https://www.marriott.com/en-us/hotels/caieg-cairo-marriott-hotel/events/" target="_blank" rel="noopener">Plan an event on marriott.com</a></div>
+      </div>
+    </section>
+
+    <!-- 15 partner sample -->
+    <section class="page pg-terra" data-title="Partner page (sample)">
+      <div class="ad">
+        <span class="lb-tag" style="align-self:flex-start">Partner page · sample</span>
+        <h2 class="lb-h1" style="font-size:2.7em;margin-top:.8em">This page belongs to a partner.</h2>
+        <p class="lb-lede">A tour operator. An airline. A wedding planner. One page, one offer, one tap to act on it.</p>
+        <button class="hot" data-hot="partner" style="margin-top:.6em"><span class="hot-dot"></span><b>Try the partner link</b></button>
+        <div class="lb-foot lb-small" style="opacity:.85">Placements in a LifeBook: a full page, a half page, or a linked dot on a page the guest already reads.</div>
+      </div>
+    </section>
+
+    <!-- 16 cairo 1 -->
+    <section class="page" data-title="Cairo beyond the gates">
+      <div class="lb-pad">
+        <div class="lb-eyebrow">Cairo beyond the gates</div>
+        <h2 class="lb-h1" style="font-size:2.1em">Tick what you want to see</h2>
+        <div class="grp">On the island</div>
+        <label class="tick"><input type="checkbox" value="Cairo Opera House">Cairo Opera House</label>
+        <label class="tick"><input type="checkbox" value="Cairo Tower">Cairo Tower</label>
+        <label class="tick"><input type="checkbox" value="Zamalek Art Gallery">Zamalek Art Gallery</label>
+        <label class="tick"><input type="checkbox" value="Aquarium Grotto Garden">Aquarium Grotto Garden</label>
+        <div class="grp">Across the river</div>
+        <label class="tick"><input type="checkbox" value="Egyptian Museum">Egyptian Museum</label>
+        <label class="tick"><input type="checkbox" value="Museum of Islamic Art">Museum of Islamic Art</label>
+        <label class="tick"><input type="checkbox" value="National Museum of Egyptian Civilization">National Museum of Egyptian Civilization</label>
+        <label class="tick"><input type="checkbox" value="Gayer-Anderson Museum">Gayer-Anderson Museum</label>
+        <label class="tick"><input type="checkbox" value="Hanging Church">Hanging Church</label>
+        <label class="tick"><input type="checkbox" value="Ben Ezra Synagogue">Ben Ezra Synagogue</label>
+      </div>
+    </section>
+
+    <!-- 17 cairo 2 -->
+    <section class="page" data-title="Giza and your list">
+      <div class="lb-pad">
+        <div class="grp" style="margin-top:0">Giza</div>
+        <label class="tick"><input type="checkbox" value="Pyramids of Giza">Pyramids of Giza</label>
+        <label class="tick"><input type="checkbox" value="The Sphinx">The Sphinx</label>
+        <label class="tick"><input type="checkbox" value="Sound and Light show">Sound and Light show</label>
+        <label class="tick"><input type="checkbox" value="Grand Egyptian Museum">Grand Egyptian Museum</label>
+        <label class="tick"><input type="checkbox" value="Pharaonic Village">Pharaonic Village</label>
+        <label class="tick"><input type="checkbox" value="Giza Zoo">Giza Zoo<i>5.1 km</i></label>
+        <div class="lb-foot" style="background:rgba(201,162,78,.16);border-radius:.6em;padding:1.1em 1.2em">
+          <div class="lb-eyebrow">My Cairo list</div>
+          <div style="font-family:var(--lb-display);font-size:1.7em;font-weight:600;line-height:1.1;margin:.15em 0 .5em" id="listCount">Nothing ticked yet</div>
+          <a class="lb-btn" id="listSend" href="mailto:mhrs.caieg.concierge@marriott.com?subject=My%20Cairo%20list">Send my list to the concierge</a>
+          <div class="lb-small lb-dim" style="margin-top:.7em">Your ticks are kept on this device.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 18 good to know -->
+    <section class="page" data-title="Good to know">
+      <div class="lb-pad">
+        <div class="lb-eyebrow">Good to know</div>
+        <h2 class="lb-h1" style="font-size:2.2em;margin-bottom:.5em">Find us, call us</h2>
+        <div class="kv"><b>Address</b><span>16 Saray El Gezira Street, Zamalek, Cairo 11211, Egypt</span></div>
+        <div class="kv"><b>Phone</b><span><a href="tel:+20227283000">+20 2-27283000</a></span></div>
+        <div class="kv"><b>Concierge</b><span><a href="mailto:mhrs.caieg.concierge@marriott.com">mhrs.caieg.concierge@marriott.com</a></span></div>
+        <div class="kv"><b>Guests say</b><span>4.2 out of 5, from 2,627 reviews on marriott.com</span></div>
+        <div class="kv" style="border-bottom:.07em solid rgba(0,0,0,.13)"><b>Awards</b><span>Green Star Hotel. TripAdvisor Travelers' Choice 2021. Energy Star.</span></div>
+        <div style="display:flex;gap:.5em;flex-wrap:wrap;margin:1.1em 0 1.2em"><a class="lb-btn is-gold" href="https://www.marriott.com/en-us/hotels/caieg-cairo-marriott-hotel/overview/" target="_blank" rel="noopener">Book on marriott.com</a><a class="lb-btn" href="https://www.google.com/maps/search/?api=1&amp;query=Cairo+Marriott+Hotel+16+Saray+El+Gezira+Street+Zamalek" target="_blank" rel="noopener">Open the map</a></div>
+        <div class="lb-photo lb-grow"><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-exterior-0218-hor-wide.jpg?downsize=1200px:*" alt="The hotel and its two towers seen across the Nile"></div>
+      </div>
+    </section>
+
+    <!-- 19 credits -->
+    <section class="page" data-title="Sources and credits">
+      <div class="lb-pad" data-nospeak>
+        <div class="lb-eyebrow">Sources and credits</div>
+        <p class="lb-small" style="margin:.8em 0 .6em">Hotel facts, hours and room types: marriott.com, read on 14 and 15 November 2026. History: Wikipedia, "Cairo Marriott Hotel".</p>
+        <p class="lb-small" style="margin:0 0 .6em">The photographs of the hotel today and the Marriott logo are the hotel's own, from marriott.com. The historic photographs and the grand staircase are from Wikimedia Commons:</p>
+        <ul class="cred">
+<li>The Gezireh Palace, 19th century: <a href="https://commons.wikimedia.org/wiki/File:F%C3%A9lix_Bonfils_-_The_Gezireh_Palace_in_Cairo,_Egypt.jpg" target="_blank" rel="noopener">Félix Bonfils</a>, Public domain.</li>
+<li>The Gezireh Palace, 19th century: <a href="https://commons.wikimedia.org/wiki/File:Le_Caire,_Palais_de_Gezireh,_RP-F-F16236.jpg" target="_blank" rel="noopener">Rijksmuseum</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a>, cropped.</li>
+<li>The grand staircase: <a href="https://commons.wikimedia.org/wiki/File:Cairo_Marriott_Hotel_-_Zamalek-4508884060.jpg" target="_blank" rel="noopener">flyvancity</a>, <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener">CC BY-SA 2.0</a>, cropped.</li>
+<li>The palace from Gezireh Park, lantern slide: <a href="https://commons.wikimedia.org/wiki/File:Egypt,_Gezireh_Park,_The_Palace,_Cairo.jpg" target="_blank" rel="noopener">Brooklyn Museum</a>, no known copyright restrictions.</li>
+<li>Entrance to the Gezira Palace hospital, about 1914 to 1918: <a href="https://commons.wikimedia.org/wiki/File:Entrance_to_Gezira_Palace_hospital,_Cairo_-_Photograph_taken_by_J_M_(21455694928).jpg" target="_blank" rel="noopener">National Library of New Zealand</a>, no known copyright restrictions.</li>
+        </ul>
+        <p class="lb-small lb-dim lb-foot">A proposal edition, prepared for the hotel's owners by IAM360. Marriott International has not reviewed it.</p>
+      </div>
+    </section>
+
+    <!-- 20 back cover -->
+    <section class="page pg-night" data-title="Back cover">
+      <div class="stars-bg"></div>
+      <div class="lb-pad" style="align-items:center;justify-content:center;text-align:center">
+        <img class="cv-logo" src="https://cache.marriott.com/content/dam/marriott-digital/mc/global-property-shared/en_us/logo/assets/mc_logo_L.png" alt="Marriott" style="height:5em;margin-bottom:1.6em">
+        <span class="lb-tag" style="color:var(--fb-accent)">LifeBook</span>
+        <div class="cv-title" style="font-size:2.9em;margin-top:.5em">The Palace on the Nile</div>
+        <p class="lb-p lb-dim" style="max-width:18em">An interactive guide you can open on any screen.</p>
+        <p class="lb-small lb-dim" style="position:absolute;bottom:2.6em;left:2em;right:2em">Proposal edition · November 2026 · Prepared by IAM360<br>A preview for the hotel's owners. Marriott International has not reviewed it.</p>
+      </div>
+    </section>
+
+    <template data-hot="ph30"><h4>The Gezireh Palace</h4><div class="fbk-meta">Photograph by Félix Bonfils, 19th century</div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/F%C3%A9lix_Bonfils_-_The_Gezireh_Palace_in_Cairo%2C_Egypt.jpg/960px-F%C3%A9lix_Bonfils_-_The_Gezireh_Palace_in_Cairo%2C_Egypt.jpg" alt=""><p class="cr">Public domain, from Wikimedia Commons.</p></template>
+    <template data-hot="brief"><h4>What the Khedive asked for</h4><p>Isma'il asked his architect to make the palace resemble the Palace of Versailles.</p><p class="cr">Source: Wikipedia, "Cairo Marriott Hotel".</p></template>
+    <template data-hot="y1880"><h4>1880: seized</h4><p>Eleven years after the canal opened, the Khedive's creditors seized the palace.</p></template>
+    <template data-hot="y1894"><h4>1894: the Ghezireh Palace Hotel</h4><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Egypt%2C_Gezireh_Park%2C_The_Palace%2C_Cairo.jpg/960px-Egypt%2C_Gezireh_Park%2C_The_Palace%2C_Cairo.jpg" alt=""><p>The palace was leased to the Compagnie Internationale des Grands Hotels, which opened it as a hotel in October 1894.</p><p class="cr">Lantern slide of the palace from Gezireh Park. Brooklyn Museum, no known copyright restrictions.</p></template>
+    <template data-hot="y1914"><h4>The First World War: a hospital</h4><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Entrance_to_Gezira_Palace_hospital%2C_Cairo_-_Photograph_taken_by_J_M_%2821455694928%29.jpg/960px-Entrance_to_Gezira_Palace_hospital%2C_Cairo_-_Photograph_taken_by_J_M_%2821455694928%29.jpg" alt=""><p>The hotel served as No. 2 Australian General Hospital, taking in casualties from the Battle of Gallipoli.</p><p class="cr">Entrance to the Gezira Palace hospital, about 1914 to 1918. National Library of New Zealand, no known copyright restrictions.</p></template>
+    <template data-hot="y1919"><h4>1919: a home again</h4><p>The Syrian businessman Habib Lotfallah bought the hotel and turned it back into a private residence.</p></template>
+    <template data-hot="y1962"><h4>1962: the Omar Khayyam Hotel</h4><p>The palace was nationalised in 1952 and reopened as a hotel in 1962, under the name Omar Khayyam. The hotel's breakfast restaurant carries that name today.</p></template>
+    <template data-hot="y1982"><h4>1982: the Cairo Marriott Hotel</h4><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-exterior-0218-hor-wide.jpg?downsize=960px:*" alt=""><p>In the late 1970s two twenty-storey towers, Gezira and Zamalek, were added and the hotel was rebuilt. It reopened in 1982 as the Cairo Marriott Hotel.</p><p class="cr">The hotel and its towers from across the Nile. Photo: Cairo Marriott Hotel.</p></template>
+    <template data-hot="stairs"><h4>The grand staircase</h4><p>White marble, a pierced balustrade and a red runner held by brass rods. The hotel offers the staircase to wedding parties for their entrance.</p></template>
+    <template data-hot="newel"><h4>Look closer</h4><p>A winged marble figure sits on the post at the foot of the stairs.</p></template>
+    <template data-hot="g1"><h4>The arcade</h4><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-entrance-0252-hor-wide.jpg?downsize=1100px:*" alt=""><p>Cast-iron arches run along the front of the palace.</p><p class="cr">Photo: Cairo Marriott Hotel.</p></template>
+    <template data-hot="g8"><h4>The central balcony</h4><img src="https://cache.marriott.com/is/image/marriotts7prod/mc-caieg-central-balcony--30407:Wide-Hor?wid=1100" alt=""><p class="cr">Photo: Cairo Marriott Hotel.</p></template>
+    <template data-hot="g10"><h4>A palace salon</h4><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-eugenie-0195-hor-wide.jpg?downsize=1100px:*" alt=""><p class="cr">Photo: Cairo Marriott Hotel.</p></template>
+    <template data-hot="g19"><h4>The lions at the door</h4><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-entrance-0238-hor-wide.jpg?downsize=1100px:*" alt=""><p class="cr">Photo: Cairo Marriott Hotel.</p></template>
+    <template data-hot="rm1"><h4>Standard Limited View</h4><div class="fbk-meta">Guest room · 1 King or 2 Double · 1st or 2nd floor · Balcony</div><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-guestroom-7772-hor-wide.jpg?downsize=1100px:*" alt=""><p class="cr">As listed on marriott.com, 15 November 2026. Photo: Cairo Marriott Hotel.</p></template>
+    <template data-hot="rm2"><h4>Deluxe</h4><div class="fbk-meta">Guest room · 2 Double · Balcony</div><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-guestroom-1575-hor-wide.jpg?downsize=1100px:*" alt=""><p class="cr">As listed on marriott.com, 15 November 2026. Photo: Cairo Marriott Hotel.</p></template>
+    <template data-hot="rm3"><h4>Deluxe Garden</h4><div class="fbk-meta">Guest room · 1 King or 2 Double · Balcony</div><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-guestroom-7796-hor-wide.jpg?downsize=1100px:*" alt=""><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-deluxe-0235-hor-wide.jpg?downsize=1100px:*" alt=""><p class="cr">As listed on marriott.com, 15 November 2026. Photos: Cairo Marriott Hotel.</p></template>
+    <template data-hot="rm4"><h4>Deluxe Nile View</h4><div class="fbk-meta">Guest room · 2 Double · Balcony</div><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-guestroom-7778-hor-wide.jpg?downsize=1100px:*" alt=""><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-view-7788-hor-wide.jpg?downsize=1100px:*" alt=""><p class="cr">As listed on marriott.com, 15 November 2026. Photos: Cairo Marriott Hotel.</p></template>
+    <template data-hot="rm5"><h4>Executive Level</h4><div class="fbk-meta">Guest room · 1 King or 2 Double · High floor · Balcony</div><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-guestroom-7609-hor-wide.jpg?downsize=1100px:*" alt=""><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-executive-0249-hor-wide.jpg?downsize=1100px:*" alt=""><p class="cr">As listed on marriott.com, 15 November 2026. Photos: Cairo Marriott Hotel.</p></template>
+    <template data-hot="rm6"><h4>Diplomatic Suite</h4><div class="fbk-meta">Suite · 1 King · Balcony</div><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-suite-7789-hor-wide.jpg?downsize=1100px:*" alt=""><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-diplomatic-0169-hor-wide.jpg?downsize=1100px:*" alt=""><p class="cr">As listed on marriott.com, 15 November 2026. Photos: Cairo Marriott Hotel.</p></template>
+    <template data-hot="rm7"><h4>Ambassador Suite</h4><div class="fbk-meta">Suite · 1 King · Balcony</div><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-ambassador-0174-hor-wide.jpg?downsize=1100px:*" alt=""><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-ambassador-0173-hor-wide.jpg?downsize=1100px:*" alt=""><p class="cr">As listed on marriott.com, 15 November 2026. Photos: Cairo Marriott Hotel.</p></template>
+    <template data-hot="rm8"><h4>Royal Suite</h4><div class="fbk-meta">Suite · 1 King · Balcony · Whirlpool</div><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-royal-0165-hor-wide.jpg?downsize=1100px:*" alt=""><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-royal-0164-hor-wide.jpg?downsize=1100px:*" alt=""><p class="cr">As listed on marriott.com, 15 November 2026. Photos: Cairo Marriott Hotel.</p></template>
+    <template data-hot="rm9"><h4>Presidential Suite</h4><div class="fbk-meta">Suite · 1 King · Balcony</div><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-presidential-0158-hor-wide.jpg?downsize=1100px:*" alt=""><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-presidential-0157-hor-wide.jpg?downsize=1100px:*" alt=""><p class="cr">As listed on marriott.com, 15 November 2026. Photos: Cairo Marriott Hotel.</p></template>
+    <template data-hot="partner"><h4>A partner link</h4><p>In a live edition this tap opens the partner's offer, a video or a booking page. Every tap can be counted and reported to the partner.</p><p class="cr">Sample only. No partner is shown in this concept edition.</p></template>
+  </div>
+</div>
+
+<script>
+/* LifeBook flipbook engine. FlipBook(root, {onChange}) turns the root's
+   <section class="page" data-title="..."> children into a book.
+   <template data-hot="id"> blocks hold what a [data-hot="id"] hotspot opens;
+   [data-goto="n"] jumps to page n (1-based). */
+function FlipBook(root, opts) {
+  opts = opts || {};
+  const aspect = parseFloat(root.dataset.aspect || opts.aspect || 0.74);
+  const pages = Array.from(root.querySelectorAll(":scope > .page"));
+  const tpls = {};
+  root.querySelectorAll(":scope > template[data-hot]").forEach((t) => { tpls[t.dataset.hot] = t; });
+  if (pages.length % 2) { const b = document.createElement("section"); b.className = "page page-blank"; pages.push(b); }
+  const P = pages.length, S = P / 2;
+  const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
+  const ICON = {
+    prev: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>',
+    next: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>',
+    list: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg>',
+    ear: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h4l5 4V6L8 10H4z"/><path d="M17 9a4 4 0 010 6M19.5 6.5a8 8 0 010 11"/></svg>',
+  };
+  root.textContent = "";
+  root.classList.add("fbk", "is-booting");
+  let booting = true;
+  const stage = el("div", "fbk-stage"), win = el("div", "fbk-win"), book = el("div", "fbk-book");
+  const sheets = [], faces = [];
+  for (let i = 0; i < S; i++) {
+    const sh = el("div", "fbk-sheet");
+    [0, 1].forEach((side) => {
+      const idx = i * 2 + side, f = el("div", "fbk-face " + (side ? "is-back" : "is-front"));
+      const pg = pages[idx]; pg.classList.add("fbk-pg");
+      f.appendChild(pg);
+      if (idx > 0 && idx < P - 1 && !pg.classList.contains("page-blank") && !pg.hasAttribute("data-nonum")) f.appendChild(el("div", "fbk-num", String(idx + 1)));
+      f.dataset.index = idx; faces[idx] = f; sh.appendChild(f);
+    });
+    sheets.push(sh); book.appendChild(sh);
+  }
+  win.appendChild(book); stage.appendChild(win);
+  const bar = el("div", "fbk-bar");
+  const bPrev = el("button", "fbk-btn", ICON.prev), bNext = el("button", "fbk-btn", ICON.next);
+  const bToc = el("button", "fbk-btn", ICON.list + "<span>Contents</span>"), bEar = el("button", "fbk-btn", ICON.ear + "<span>Listen</span>");
+  const label = el("div", "fbk-label"), range = el("input", "fbk-range");
+  range.type = "range"; range.min = 0; range.max = S; range.step = 1; range.setAttribute("aria-label", "Page");
+  bPrev.setAttribute("aria-label", "Previous page"); bNext.setAttribute("aria-label", "Next page");
+  bar.append(bToc, bPrev, label, bNext, range, bEar);
+  const toc = el("div", "fbk-toc", "<h3>Contents</h3>"), pop = el("div", "fbk-pop");
+  pages.forEach((pg, i) => {
+    if (!pg.dataset.title) return;
+    const b = el("button", "", "<span></span><i>" + (i + 1) + "</i>"); b.firstChild.textContent = pg.dataset.title;
+    b.onclick = () => { go(i); toc.classList.remove("is-open"); }; toc.appendChild(b);
+  });
+  root.append(stage, bar, toc, pop);
+
+  let p = 0, single = false;
+  const flips = (pp) => Math.ceil(pp / 2);
+  function size() {
+    const r = stage.getBoundingClientRect();
+    if (!r.width || !r.height) return;
+    single = r.width < 760;
+    let pw = single ? Math.min(r.width * 0.94, r.height * 0.93 * aspect) : Math.min((r.width * 0.95) / 2, r.height * 0.92 * aspect);
+    pw = Math.max(160, Math.floor(pw));
+    root.style.setProperty("--pw", pw + "px"); root.style.setProperty("--ph", Math.floor(pw / aspect) + "px");
+    root.classList.toggle("is-single", single);
+    if (!single) p = Math.min(P - 1, flips(p) * 2);
+    render(true);
+    // the first layout must not animate: the pages would be seen sorting themselves
+    if (booting) { booting = false; requestAnimationFrame(() => requestAnimationFrame(() => root.classList.remove("is-booting"))); }
+  }
+  function render(quiet) {
+    const f = flips(p);
+    sheets.forEach((sh, i) => {
+      const fl = i < f; sh.classList.toggle("is-flipped", fl);
+      sh.style.setProperty("--z", (fl ? -(f - 1 - i) : -(i - f)) * 0.6 + "px");
+    });
+    const L = f > 0 ? 2 * f - 1 : -1, R = f < S ? 2 * f : -1;
+    faces.forEach((fc, i) => fc.classList.toggle("is-off", single ? i !== p : i !== L && i !== R));
+    const pw = parseFloat(getComputedStyle(root).getPropertyValue("--pw")) || 300;
+    let tx = 0;
+    if (single) tx = p % 2 === 0 ? -pw : 0; else if (f === 0) tx = -pw / 2; else if (f === S) tx = pw / 2;
+    book.style.transform = "translateX(" + tx + "px)";
+    label.textContent = single ? (p + 1) + " / " + P : f === 0 ? "Cover" : f === S ? "Back cover" : (2 * f) + " – " + (2 * f + 1) + " / " + P;
+    bPrev.disabled = p === 0; bNext.disabled = single ? p === P - 1 : f === S;
+    range.value = f;
+    if (!quiet) { hush(); closePop(); if (opts.onChange) opts.onChange(p, visible()); }
+  }
+  const visible = () => { const f = flips(p); return single ? [p] : [2 * f - 1, 2 * f].filter((i) => i >= 0 && i < P); };
+  function go(i) { p = Math.max(0, Math.min(P - 1, i)); if (!single) p = Math.min(P - 1, flips(p) * 2); render(); }
+  function next() { if (single) go(p + 1); else go(Math.min(P - 1, (flips(p) + 1) * 2)); }
+  function prev() { if (single) go(p - 1); else go(Math.max(0, (flips(p) - 1) * 2)); }
+
+  // popover for hotspots
+  function openPop(node) {
+    pop.textContent = ""; const x = el("button", "fbk-x", "×"); x.setAttribute("aria-label", "Close"); x.onclick = closePop;
+    pop.append(x, node); pop.classList.add("is-open");
+  }
+  function closePop() { pop.classList.remove("is-open"); }
+  function hot(id, from) {
+    if (tpls[id]) return openPop(tpls[id].content.cloneNode(true));
+    if (from && from.dataset.title) {
+      const w = el("div"); const h = el("h4"); h.textContent = from.dataset.title; w.appendChild(h);
+      if (from.dataset.meta) { const m = el("div", "fbk-meta"); m.textContent = from.dataset.meta; w.appendChild(m); }
+      if (from.dataset.logo) { const i = el("img", "fbk-logo"); i.alt = ""; i.onerror = () => i.remove(); i.src = from.dataset.logo; w.insertBefore(i, h); }
+      if (from.dataset.img) { const i = el("img"); i.alt = ""; i.onerror = () => i.remove(); i.src = from.dataset.img; w.appendChild(i); }
+      if (from.dataset.body) { const b = el("p"); b.textContent = from.dataset.body; w.appendChild(b); }
+      if (from.dataset.note) { const n = el("p", "fbk-note"); n.textContent = from.dataset.note; w.appendChild(n); }
+      if (from.dataset.link) { const a = el("a", "fbk-go"); a.href = from.dataset.link; a.target = "_blank"; a.rel = "noopener"; a.textContent = from.dataset.linkLabel || "Open"; w.appendChild(a); }
+      if (from.dataset.link2) { const a = el("a", "fbk-go2"); a.href = from.dataset.link2; a.target = "_blank"; a.rel = "noopener"; a.textContent = from.dataset.link2Label || "Source"; w.appendChild(a); }
+      openPop(w);
+    }
+  }
+
+  // read aloud
+  const synth = window.speechSynthesis;
+  function hush() { if (synth) synth.cancel(); bEar.classList.remove("is-on"); }
+  bEar.onclick = () => {
+    if (!synth) return;
+    if (bEar.classList.contains("is-on")) return hush();
+    const text = visible().map((i) => { const c = faces[i].firstChild.cloneNode(true); c.querySelectorAll("[data-nospeak],script,style").forEach((n) => n.remove()); return c.innerText || c.textContent; }).join(". ").replace(/\s+/g, " ").trim();
+    if (!text) return;
+    const u = new SpeechSynthesisUtterance(text); u.rate = 0.98; u.lang = root.dataset.lang || "en-US";
+    u.onend = () => bEar.classList.remove("is-on"); synth.cancel(); synth.speak(u); bEar.classList.add("is-on");
+  };
+  if (!synth) bEar.style.display = "none";
+
+  // input
+  let downX = null, swiped = false;
+  win.addEventListener("pointerdown", (e) => { downX = e.clientX; swiped = false; });
+  win.addEventListener("pointerup", (e) => {
+    if (downX == null) return; const dx = e.clientX - downX; downX = null;
+    if (Math.abs(dx) > 46) { swiped = true; dx < 0 ? next() : prev(); }
+  });
+  win.addEventListener("click", (e) => {
+    if (swiped) { swiped = false; return; }
+    const g = e.target.closest("[data-goto]"); if (g) { e.preventDefault(); return go(parseInt(g.dataset.goto, 10) - 1); }
+    const h = e.target.closest("[data-hot]"); if (h) { e.preventDefault(); return hot(h.dataset.hot, h); }
+    if (e.target.closest("a,button,input,select,textarea,label,[data-stop]")) return;
+    const face = e.target.closest(".fbk-face"); if (!face) return;
+    if (pop.classList.contains("is-open")) return closePop();
+    if (single) { const r = face.getBoundingClientRect(); (e.clientX - r.left) < r.width * 0.3 ? prev() : next(); }
+    else face.classList.contains("is-back") ? prev() : next();
+  });
+  bPrev.onclick = prev; bNext.onclick = next;
+  bToc.onclick = () => toc.classList.toggle("is-open");
+  stage.addEventListener("click", (e) => { if (e.target === stage) { toc.classList.remove("is-open"); closePop(); } });
+  range.oninput = () => go(Math.min(P - 1, parseInt(range.value, 10) * 2));
+  root.tabIndex = 0;
+  root.addEventListener("keydown", (e) => {
+    if (e.target.closest("input,textarea,select") && e.target !== range) return;
+    if (e.key === "ArrowRight" || e.key === "PageDown") { next(); e.preventDefault(); }
+    else if (e.key === "ArrowLeft" || e.key === "PageUp") { prev(); e.preventDefault(); }
+    else if (e.key === "Home") go(0); else if (e.key === "End") go(P - 1);
+  });
+  if (window.ResizeObserver) new ResizeObserver(size).observe(stage); else window.addEventListener("resize", size);
+  size();
+  return { go, next, prev, hush, closePop, get page() { return p; }, get count() { return P; }, root };
+}
+
+</script>
+<script>
+(function () {
+  "use strict";
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var IMG = { y1869: "https://upload.wikimedia.org/wikipedia/commons/3/33/F%C3%A9lix_Bonfils_-_The_Gezireh_Palace_in_Cairo%2C_Egypt.jpg", y1894: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Egypt%2C_Gezireh_Park%2C_The_Palace%2C_Cairo.jpg/1280px-Egypt%2C_Gezireh_Park%2C_The_Palace%2C_Cairo.jpg", y1914: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Entrance_to_Gezira_Palace_hospital%2C_Cairo_-_Photograph_taken_by_J_M_%2821455694928%29.jpg/1280px-Entrance_to_Gezira_Palace_hospital%2C_Cairo_-_Photograph_taken_by_J_M_%2821455694928%29.jpg", y1919: "https://upload.wikimedia.org/wikipedia/commons/3/3a/F%C3%A9lix_Bonfils_-_Gazirah_Palace_in_Cairo.jpg", y1962: "https://cache.marriott.com/is/image/marriotts7prod/mc-caieg-central-balcony--30407:Wide-Hor?wid=1280", y1982: "https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-exterior-0218-hor-wide.jpg?downsize=1280px:*" };
+  /* the hotel's own photographs, linked from Marriott's servers */
+  function mar(stem, w) { return "https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-" + stem + "-hor-wide.jpg?downsize=" + (w || 1336) + "px:*"; }
+
+  /* the palace timeline */
+  var YEARS = [
+    { y: "1869", t: "A palace for the Suez Canal", x: "Khedive Isma'il commissions the Gezirah Palace to host Napoleon III and Empress Eugénie of France at the opening of the Suez Canal. He asks his architect, Carl von Diebitsch, to make it resemble Versailles.", img: IMG.y1869, cap: "The Gezireh Palace, 19th century. Photo: Félix Bonfils, public domain" },
+    { y: "1894", t: "The Ghezireh Palace Hotel", x: "The Khedive's creditors seize the palace in 1880. It is leased to the Compagnie Internationale des Grands Hotels, which opens it as a hotel in October 1894.", img: IMG.y1894, cap: "The palace from Gezireh Park, lantern slide. Brooklyn Museum, no known copyright restrictions" },
+    { y: "1914", t: "A hospital in wartime", x: "During the First World War the hotel serves as No. 2 Australian General Hospital, taking in casualties from the Battle of Gallipoli.", img: IMG.y1914, cap: "Entrance to the Gezira Palace hospital, about 1914 to 1918. National Library of New Zealand, no known copyright restrictions" },
+    { y: "1919", t: "A private home again", x: "The Syrian businessman Habib Lotfallah buys the hotel and turns it back into a residence.", img: IMG.y1919, cap: "The palace arcade, 19th century. Photo: Félix Bonfils, public domain" },
+    { y: "1962", t: "The Omar Khayyam Hotel", x: "Nationalised in 1952, the palace returns to hotel life in 1962 under a new name. The hotel's breakfast restaurant carries that name today.", img: IMG.y1962, cap: "The central balcony of the palace today. Photo: Cairo Marriott Hotel" },
+    { y: "1982", t: "The Cairo Marriott Hotel", x: "In the late 1970s two twenty-storey towers, Gezira and Zamalek, rise beside the palace and the hotel is rebuilt. It reopens in 1982 as the Cairo Marriott Hotel.", img: IMG.y1982, cap: "The hotel and its two towers from across the Nile. Photo: Cairo Marriott Hotel" }
+  ];
+  var tabs = $(".tl-years");
+  function showYear(i) {
+    var d = YEARS[i];
+    $$("button", tabs).forEach(function (b, k) { b.setAttribute("aria-selected", k === i ? "true" : "false"); });
+    $("#tlYear").textContent = d.y; $("#tlTitle").textContent = d.t; $("#tlText").textContent = d.x;
+    var im = $("#tlImg"); im.style.opacity = 0; im.onload = function () { im.style.opacity = 1; }; im.src = d.img; im.alt = d.t;
+    $("#tlCap").textContent = d.cap;
+  }
+  YEARS.forEach(function (d, i) { var b = document.createElement("button"); b.textContent = d.y; b.setAttribute("role", "tab"); b.onclick = function () { showYear(i); }; tabs.appendChild(b); });
+  showYear(0);
+
+  /* places to eat and drink, with hours in minutes after midnight (Cairo) */
+  var DAY = [[0, 1440]];
+  var VENUES = [
+    { n: "JW Steakhouse", g: "restaurant", k: "American steakhouse", x: "Steaks, for dinner only.", h: [[1080, 1440]], img: "steakhouse-0258" },
+    { n: "Saraya Gallery", g: "restaurant", k: "French and international", x: "Lunch and dinner in the heart of the palace.", h: [[720, 1440]], img: "saraya-0254" },
+    { n: "Ristorante Tuscany", g: "restaurant", k: "Italian", x: "The Italian table, open for dinner.", h: [[1080, 1440]], img: "ristorante-0222" },
+    { n: "Roy's Smokehouse", g: "restaurant", k: "American barbecue", x: "The meat is smoked for more than twelve hours.", h: [[720, 1440]], img: "kitchen-0201" },
+    { n: "The Egyptian Nights", g: "restaurant", k: "Middle Eastern", x: "Middle Eastern cooking in the open air.", h: [[1080, 1560]] },
+    { n: "Omar Khayyam Restaurant", g: "restaurant", k: "Breakfast", x: "The breakfast buffet.", h: [[360, 660]], wk: [[360, 720]], note: "Sunday to Thursday 6 AM to 11 AM. Friday and Saturday 6 AM to 12 PM." },
+    { n: "Billiard Bar", g: "bar", k: "Cigar lounge", x: "A cigar lounge that keeps the palace's original interiors.", h: [[1080, 1560]] },
+    { n: "The Lounge", g: "bar", k: "Lounge", x: "Afternoon tea by day. A pianist plays every evening from 8 PM to 11:30 PM.", h: DAY },
+    { n: "Harry's Pub", g: "bar", k: "British pub", x: "A British pub with a live band every week.", h: [[1080, 1500]] },
+    { n: "Garden Promenade Cafe", g: "cafe", k: "Garden café", x: "A table in the palace gardens, from breakfast until late.", h: [[360, 1560]] },
+    { n: "The Bakery", g: "cafe", k: "Bakery", x: "Coffee and pastry among the palace arches, at any hour.", h: DAY, img: "bakery-0216" },
+    { n: "The Waves Snack Bar", g: "cafe", k: "Poolside", x: "Snacks and drinks by the pool.", h: [[600, 1110]] },
+    { n: "In Room Dining", g: "always", k: "Room service", x: "The kitchen comes to you, day or night.", h: DAY, extra: true },
+    { n: "M Club", g: "always", k: "Lounge", x: "The M Club lounge, open around the clock.", h: DAY, extra: true }
+  ];
+  function cairo() {
+    try {
+      var parts = new Intl.DateTimeFormat("en-GB", { timeZone: "Africa/Cairo", weekday: "long", hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).formatToParts(new Date());
+      var o = {}; parts.forEach(function (p) { o[p.type] = p.value; });
+      return { day: o.weekday, min: (parseInt(o.hour, 10) % 24) * 60 + parseInt(o.minute, 10) };
+    } catch (e) { var d = new Date(); return { day: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][d.getDay()], min: d.getHours() * 60 + d.getMinutes() }; }
+  }
+  function clockText(m) { m = ((m % 1440) + 1440) % 1440; var h = Math.floor(m / 60), mm = m % 60, ap = h < 12 ? "AM" : "PM", h12 = h % 12 || 12; return h12 + (mm ? ":" + (mm < 10 ? "0" : "") + mm : "") + " " + ap; }
+  function hoursFor(v, day) { return v.wk && (day === "Friday" || day === "Saturday") ? v.wk : v.h; }
+  function nextDay(day) { var D = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]; return D[(D.indexOf(day) + 1) % 7]; }
+  function prevDay(day) { var D = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]; return D[(D.indexOf(day) + 6) % 7]; }
+  function state(v, now) {
+    var h = hoursFor(v, now.day), y = hoursFor(v, prevDay(now.day)), i;
+    if (h[0][0] === 0 && h[0][1] === 1440) return { open: true, text: "Open 24 hours" };
+    for (i = 0; i < h.length; i++) if (now.min >= h[i][0] && now.min < h[i][1]) return { open: true, text: "Open until " + clockText(h[i][1]) };
+    for (i = 0; i < y.length; i++) if (y[i][1] > 1440 && now.min < y[i][1] - 1440) return { open: true, text: "Open until " + clockText(y[i][1]) };
+    for (i = 0; i < h.length; i++) if (now.min < h[i][0]) return { open: false, text: "Opens " + clockText(h[i][0]) };
+    return { open: false, text: "Opens " + clockText(hoursFor(v, nextDay(now.day))[0][0]) + " tomorrow" };
+  }
+  function hoursText(v) { if (v.note) return v.note; var h = v.h[0]; return h[0] === 0 && h[1] === 1440 ? "Open 24 hours, every day." : "Every day, " + clockText(h[0]) + " to " + clockText(h[1]) + "."; }
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+
+  var grid = $("#venues"), filter = "all";
+  var FILTERS = [["all", "All"], ["open", "Open now"], ["restaurant", "Restaurants"], ["bar", "Bars and lounges"], ["cafe", "Cafés and the pool"]];
+  FILTERS.forEach(function (f) { var b = el("button", "chip", f[1]); b.setAttribute("aria-pressed", f[0] === "all" ? "true" : "false"); b.onclick = function () { filter = f[0]; $$("#chips .chip").forEach(function (c) { c.setAttribute("aria-pressed", c === b ? "true" : "false"); }); paint(); }; $("#chips").appendChild(b); });
+  function paint() {
+    var now = cairo();
+    var line = "It is " + clockText(now.min) + " on " + now.day + " in Cairo";
+    $("#clock").textContent = line;
+    $$("[data-clock]").forEach(function (n) { n.textContent = line + "."; });
+    grid.textContent = ""; var shown = 0;
+    VENUES.forEach(function (v) {
+      var s = state(v, now);
+      if (v.extra) return;
+      if (filter === "open" ? !s.open : filter !== "all" && v.g !== filter) return;
+      var c = el("article", "venue");
+      c.appendChild(el("div", "k", v.k)); c.appendChild(el("h3", "", v.n)); c.appendChild(el("p", "", v.x));
+      var h = el("div", "h"); h.appendChild(el("span", "dot" + (s.open ? " open" : ""))); h.appendChild(el("b", "", s.text));
+      h.appendChild(el("span", "", v.note ? "Daily from 6 AM" : v.h[0][1] - v.h[0][0] === 1440 ? "Every day" : clockText(v.h[0][0]) + " to " + clockText(v.h[0][1])));
+      c.appendChild(h); grid.appendChild(c); shown++;
+    });
+    if (!shown) grid.appendChild(el("div", "empty", "Nothing matches right now. Room service and The Bakery are open at any hour."));
+    $$("[data-vrow]").forEach(function (r) { var v = VENUES[+r.dataset.vrow], s = state(v, now); r.querySelector(".lb-dot").className = "lb-dot" + (s.open ? " is-open" : ""); r.querySelector(".lb-row-r").textContent = s.text; r.dataset.meta = s.text + " · " + v.k; });
+    $$("[data-table]").forEach(function (t) { var v = VENUES[+t.dataset.table], s = state(v, now); t.querySelector(".dot").className = "dot" + (s.open ? " open" : ""); t.querySelector("em").textContent = s.text; });
+    $$("#night .night-step").forEach(function (n) { var a = +n.dataset.from, b = +n.dataset.to, m = now.min < 360 ? now.min + 1440 : now.min, a2 = a < 360 ? a + 1440 : a, b2 = b <= 360 ? b + 1440 : b; n.classList.toggle("is-now", m >= a2 && m < b2); });
+  }
+  /* the same places as rows inside the LifeBook */
+  $$("[data-venues]").forEach(function (list) {
+    VENUES.forEach(function (v, i) {
+      if (list.dataset.venues === "pool" ? v.n !== "The Waves Snack Bar" : v.g !== list.dataset.venues) return;
+      var r = el("button", "lb-row"); r.dataset.vrow = i; r.dataset.hot = "v" + i; r.dataset.title = v.n; r.dataset.body = v.x + " " + hoursText(v);
+      if (v.img) r.dataset.img = mar(v.img, 960);
+      r.appendChild(el("span", "lb-dot"));
+      var t = el("span", "lb-row-t", v.n); t.appendChild(el("span", "lb-row-s", v.k)); r.appendChild(t);
+      r.appendChild(el("span", "lb-row-r", "")); list.appendChild(r);
+    });
+  });
+
+  /* four tables with the hotel's photographs; a tap opens the dining pages of the LifeBook */
+  VENUES.forEach(function (v, i) {
+    if (!v.img || v.g !== "restaurant") return;
+    var t = el("button", "table-t"); t.dataset.table = i; t.setAttribute("aria-label", v.n + ". Open the dining pages of the LifeBook");
+    var im = el("img"); im.src = mar(v.img, 800); im.alt = ""; im.loading = "lazy"; t.appendChild(im);
+    var s = el("span"); s.appendChild(el("b", "", v.n)); var l = el("i"); l.appendChild(el("span", "dot")); l.appendChild(el("em", "", v.k)); s.appendChild(l); t.appendChild(s);
+    t.onclick = function () { openBook(10); };
+    $("#tables").appendChild(t);
+  });
+
+  /* rooms and suites, as the hotel lists them */
+  var ROOMS = [
+    { n: "Standard Limited View", g: "Guest rooms", s: "1st or 2nd floor", f: ["Guest room", "1 King or 2 Double", "1st or 2nd floor", "Balcony"], p: [["guestroom-7772", "A Standard room with a limited view"]] },
+    { n: "Deluxe", s: "2 Double", f: ["Guest room", "2 Double", "Balcony"], p: [["guestroom-1575", "A Deluxe room with two double beds"]] },
+    { n: "Deluxe Garden", s: "Garden view", f: ["Guest room", "1 King or 2 Double", "Balcony"], p: [["guestroom-7796", "A King Deluxe room on the ground floor, with a garden view"], ["deluxe-0235", "The palace gardens from a balcony"]] },
+    { n: "Deluxe Nile View", s: "Nile view", f: ["Guest room", "2 Double", "Balcony"], p: [["guestroom-7778", "A Deluxe room with two double beds and a Nile view"], ["view-7788", "The Nile from the hotel"]] },
+    { n: "Executive Level", s: "High floor", f: ["Guest room", "1 King or 2 Double", "High floor", "Balcony"], p: [["guestroom-7609", "An Executive King room"], ["executive-0249", "Tea on a balcony above the Nile"]] },
+    { n: "Diplomatic Suite", g: "Suites", s: "1 King", f: ["Suite", "1 King", "Balcony"], p: [["suite-7789", "The Diplomatic Suite"], ["suite-7784", "The sitting room of the Diplomatic Suite"], ["diplomatic-0169", "The bedroom of the Diplomatic Suite"]] },
+    { n: "Ambassador Suite", s: "1 King", f: ["Suite", "1 King", "Balcony"], p: [["ambassador-0174", "The sitting room of the Ambassador Suite"], ["ambassador-0173", "The bedroom of the Ambassador Suite"], ["ambassador-0175", "The kitchen of the Ambassador Suite"]] },
+    { n: "Royal Suite", s: "Whirlpool", f: ["Suite", "1 King", "Balcony", "Whirlpool"], p: [["royal-0165", "The sitting room of the Royal Suite"], ["royal-0164", "The bedroom of the Royal Suite"]] },
+    { n: "Presidential Suite", s: "1 King", f: ["Suite", "1 King", "Balcony"], p: [["presidential-0158", "The sitting room of the Presidential Suite"], ["presidential-0157", "The bedroom of the Presidential Suite"]] }
+  ];
+  var roomList = $("#roomList"), roomBtns = [];
+  function roomPhoto(r, k) {
+    var im = $("#roomImg"), p = r.p[k];
+    im.style.opacity = 0; im.onload = function () { im.style.opacity = 1; }; im.src = mar(p[0], 1336); im.alt = p[1];
+    $("#roomCap").textContent = p[1];
+    $$("#roomThumbs button").forEach(function (b, j) { b.setAttribute("aria-pressed", j === k ? "true" : "false"); });
+  }
+  function showRoom(i) {
+    var r = ROOMS[i];
+    roomBtns.forEach(function (b, k) { b.setAttribute("aria-selected", k === i ? "true" : "false"); });
+    $("#roomName").textContent = r.n;
+    var f = $("#roomFeats"); f.textContent = ""; r.f.forEach(function (x) { f.appendChild(el("li", "", x)); });
+    var th = $("#roomThumbs"); th.textContent = "";
+    if (r.p.length > 1) r.p.forEach(function (p, k) { var b = el("button"); b.setAttribute("aria-label", p[1]); var t = el("img"); t.src = mar(p[0], 320); t.alt = ""; b.appendChild(t); b.onclick = function () { roomPhoto(r, k); }; th.appendChild(b); });
+    roomPhoto(r, 0);
+  }
+  ROOMS.forEach(function (r, i) {
+    if (r.g) roomList.appendChild(el("div", "room-grp", r.g));
+    var b = el("button", "room-b"); b.setAttribute("role", "tab"); b.appendChild(el("b", "", r.n)); b.appendChild(el("span", "", r.s));
+    b.onclick = function () { showRoom(i); }; roomList.appendChild(b); roomBtns.push(b);
+  });
+  showRoom(3);
+
+  /* spa, pool, tour and kids club: the photograph follows the row */
+  var expItems = $$("#expList .exp-item"), expImgs = $$("#expFig img");
+  function showExp(i) { expItems.forEach(function (n, k) { n.classList.toggle("is-on", k === i); }); expImgs.forEach(function (n, k) { n.classList.toggle("is-on", k === i); }); }
+  expItems.forEach(function (n, i) { n.addEventListener("mouseenter", function () { showExp(i); }); n.addEventListener("click", function () { showExp(i); }); n.addEventListener("focus", function () { showExp(i); }); });
+
+  /* plan your day */
+  var PLANS = {
+    palace: [["From 6 AM", "Breakfast at Omar Khayyam", "Buffet until 11 AM, noon on Friday and Saturday."], ["Morning", "The Palace Tour", "Led by a hotel associate. The concierge has the times."], ["From 12 PM", "Lunch at Saraya Gallery", "French and international, in the heart of the palace."], ["Afternoon", "Tea at The Lounge", "Afternoon tea is served here."], ["From 6 PM", "The Billiard Bar", "A cigar lounge in the palace's original interiors."]],
+    family: [["From 6 AM", "Breakfast at Omar Khayyam", "Buffet until 11 AM, noon on Friday and Saturday."], ["Morning", "Giza Zoo", "5.1 km from the hotel."], ["From 10 AM", "The pool", "The Waves Snack Bar serves it until 6:30 PM."], ["Afternoon", "The Kids Club", "Time of their own for younger guests."], ["From 6 PM", "Dinner at Ristorante Tuscany", "The Italian table opens at 6."]],
+    night: [["From 6 PM", "Dinner at JW Steakhouse", "Open until midnight."], ["8 PM", "The pianist at The Lounge", "Every evening until 11:30 PM."], ["Until 1 AM", "Harry's Pub", "A British pub with a live band every week."], ["Until 2 AM", "The Egyptian Nights", "Middle Eastern cooking in the open air."], ["Any hour", "The Bakery", "Coffee and pastry among the palace arches."]],
+    first: [["From 6 AM", "An early breakfast", "Omar Khayyam opens at 6."], ["Morning", "The Pyramids and the Sphinx", "Go early, before the heat."], ["Midday", "The Grand Egyptian Museum", "Also in Giza, so pair the two."], ["Afternoon", "Back to the pool", "The Waves Snack Bar serves until 6:30 PM."], ["From 6 PM", "Dinner at The Egyptian Nights", "Open-air and open until 2 AM."]]
+  };
+  function plan(k) {
+    var box = $("#plan"); if (!box) return; box.textContent = "";
+    PLANS[k].forEach(function (s) { var r = el("div", "plan-step"); r.appendChild(el("b", "t", s[0])); var d = el("div"); d.appendChild(el("b", "", s[1])); d.appendChild(el("div", "lb-small lb-dim", s[2])); r.appendChild(d); box.appendChild(r); });
+    $$("[data-mood]").forEach(function (b) { b.classList.toggle("is-on", b.dataset.mood === k); });
+  }
+  plan("palace");
+  document.addEventListener("click", function (e) { var m = e.target.closest("[data-mood]"); if (m) plan(m.dataset.mood); });
+
+  /* my Cairo list, kept on this device */
+  var KEY = "lifebook-cairo-list", picked = [];
+  try { picked = JSON.parse(localStorage.getItem(KEY) || "[]") || []; } catch (e) { picked = []; }
+  function list() {
+    var boxes = $$(".tick input");
+    picked = boxes.filter(function (b) { return b.checked; }).map(function (b) { return b.value; });
+    try { localStorage.setItem(KEY, JSON.stringify(picked)); } catch (e) {}
+    var c = $("#listCount"); if (c) c.textContent = picked.length ? picked.length + (picked.length === 1 ? " place" : " places") + " on your list" : "Nothing ticked yet";
+    var a = $("#listSend"); if (a) a.href = "mailto:mhrs.caieg.concierge@marriott.com?subject=" + encodeURIComponent("My Cairo list") + "&body=" + encodeURIComponent("Hello,\n\nI would like to see:\n" + picked.map(function (p) { return "- " + p; }).join("\n") + "\n\nCould you help me plan it?\n");
+  }
+  $$(".tick input").forEach(function (b) { b.checked = picked.indexOf(b.value) >= 0; });
+  document.addEventListener("change", function (e) { if (e.target.closest(".tick")) list(); });
+
+  /* the book */
+  var lbo = $("#lbo"), book = FlipBook($("#lifebook"), { onChange: function (p) { try { history.replaceState(null, "", "#lifebook=" + (p + 1)); } catch (e) {} } });
+  list(); paint(); setInterval(paint, 30000);
+  function openBook(page) { lbo.classList.add("is-open"); lbo.setAttribute("aria-hidden", "false"); document.body.classList.add("lb-lock"); if (page) book.go(page - 1); setTimeout(function () { book.root.focus({ preventScroll: true }); }, 60); }
+  function closeBook() { book.hush(); book.closePop(); lbo.classList.remove("is-open"); lbo.setAttribute("aria-hidden", "true"); document.body.classList.remove("lb-lock"); if (document.fullscreenElement) document.exitFullscreen(); try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {} }
+  $$("[data-open-book]").forEach(function (b) { b.addEventListener("click", function () { openBook(); }); });
+  $("#lbClose").onclick = closeBook;
+  $("#lbFs").onclick = function () { if (document.fullscreenElement) document.exitFullscreen(); else if (lbo.requestFullscreen) lbo.requestFullscreen(); };
+  if (!lbo.requestFullscreen) $("#lbFs").style.display = "none";
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && lbo.classList.contains("is-open")) closeBook(); });
+  var m = location.hash.match(/^#lifebook(?:=(\d+))?(?:&hot=([\w-]+))?/);
+  if (m) { openBook(m[1] ? parseInt(m[1], 10) : 0); if (m[2]) setTimeout(function () { var h = document.querySelector('[data-hot="' + m[2] + '"]'); if (h) h.click(); }, 1200); }
+})();
+</script>
+</body>
+</html>
