@@ -336,6 +336,21 @@ body.lb-lock{overflow:hidden}
 .fbk-pop a.fbk-go2{display:inline-block;margin:6px 0 0;font-size:13.5px;color:#5d554a}
 .fbk-pop a.fbk-go + a.fbk-go2{margin-left:14px}
 
+/* video player over the book */
+.fbk-vid{position:absolute;inset:0;z-index:40;display:none;place-items:center;padding:14px;background:rgba(8,6,5,.9);container-type:size}
+.fbk-vid.is-open{display:grid}
+.fbk-vid-box{position:relative;width:min(100cqw,calc((100cqh - 132px)*1.7778),1120px)}
+.fbk-vid-frame{position:relative;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.fbk-vid-frame iframe,.fbk-vid-frame video{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.fbk-vid-x{position:absolute;top:-48px;right:0;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.32);
+  background:rgba(255,255,255,.1);color:#fff;font:400 21px/1 system-ui,sans-serif;cursor:pointer}
+.fbk-vid-x:hover{background:rgba(255,255,255,.2)}
+.fbk-vid-cap{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:12px;color:#f4efe6;
+  font:500 14px/1.35 system-ui,-apple-system,"Segoe UI",sans-serif}
+.fbk-vid-cap a{color:inherit;opacity:.78;white-space:nowrap}
+.fbk-vid-box.is-tall{width:min(100cqw,calc((100cqh - 132px)*.54),440px)}
+.fbk-vid-box.is-tall .fbk-vid-frame{aspect-ratio:auto;height:min(calc(100cqh - 132px),815px);background:#fff}
+
 /* LifeBook page primitives. Everything is in em, and the page's font size
    follows the page width (cqw), so a page looks the same at every size. */
 .fbk-pg{font-family:var(--lb-body,"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif);font-size:3.5cqw;line-height:1.46}
@@ -379,6 +394,24 @@ body.lb-lock{overflow:hidden}
 .page-blank{background:var(--fb-paper)}
 .lb-photo.lb-grow{flex:1 1 0;min-height:0}
 .lb-photo.lb-grow img{position:absolute;inset:0}
+
+/* a video tile: tap to play. On a cover it sits between the masthead and the title. */
+.lb-video{position:relative;display:block;width:100%;aspect-ratio:16/9;margin:0;padding:0;border:0;border-radius:.5em;overflow:hidden;background:#15110d;flex:none;text-align:left;
+  box-shadow:0 .6em 1.8em rgba(0,0,0,.5),0 0 0 .09em rgba(255,255,255,.3)}
+.lb-video img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;-webkit-user-drag:none}
+.lb-video::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.08) 40%,rgba(0,0,0,.78))}
+.lb-play{position:absolute;left:50%;top:44%;z-index:2;width:3.5em;height:3.5em;margin:-1.75em 0 0 -1.75em;border-radius:50%;background:var(--fb-accent);
+  box-shadow:0 0 0 .42em rgba(255,255,255,.24),0 .4em 1.2em rgba(0,0,0,.4);transition:transform .2s ease}
+.lb-play::before{content:"";position:absolute;left:55%;top:50%;transform:translate(-50%,-50%);border-style:solid;border-width:.64em 0 .64em 1.08em;border-color:transparent transparent transparent #fff}
+.lb-video:hover .lb-play{transform:scale(1.07)}
+.lb-video-cap{position:absolute;left:.95em;right:.95em;bottom:.7em;z-index:2;display:flex;flex-direction:column;gap:.12em;color:#fff;font-size:.78em;line-height:1.25}
+.lb-video-cap b{font-size:.76em;letter-spacing:.2em;text-transform:uppercase;font-weight:700;opacity:.86}
+.lb-video-cap span{font-weight:600;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lb-video.is-empty{cursor:default;background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 .1em rgba(255,255,255,.4)}
+.lb-video.is-empty::after{display:none}
+.lb-video.is-empty .lb-play{background:rgba(255,255,255,.2);box-shadow:none}
+.lb-cv-video{margin-top:1em;width:82%;flex:none}
+.lb-cv-video .lb-video{box-shadow:0 0 0 .08em rgba(255,255,255,.55),0 .8em 2em rgba(0,0,0,.45)}
 
 #lifebook{--fb-paper:#fbf5e9;--fb-ink:#1f1814;--fb-accent:#c9a24e;--lb-deep:#8a651c;--lb-display:"Cormorant Garamond",Georgia,serif;--lb-body:"DM Sans",system-ui,sans-serif}
 #lifebook .lb-h1,#lifebook .lb-h2{font-weight:600}
@@ -651,7 +684,7 @@ body.lb-lock{overflow:hidden}
         <img class="foot-logo" src="https://cache.marriott.com/content/dam/marriott-digital/mc/global-property-shared/en_us/logo/assets/mc_logo_L.png" alt="Marriott" loading="lazy">
         <b>Cairo Marriott Hotel &amp; Omar Khayyam Casino</b>
         <p>A proposal for the hotel's new website, with its LifeBook interactive guide. Prepared for the hotel's owners by IAM360, November 2026.</p>
-        <p>This is a design preview, not the live site, and Marriott International has not reviewed it. The Marriott name and logo and the hotel's photographs belong to their owners and are shown here for this presentation only. To book, use <a href="https://www.marriott.com/en-us/hotels/caieg-cairo-marriott-hotel/overview/" target="_blank" rel="noopener">marriott.com</a>.</p>
+        <p>This is a design preview, not the live site, and Marriott International has not reviewed it. The Marriott name and logo and the hotel's photographs belong to their owners and are shown here for this presentation only. To book, use <a href="https://www.marriott.com/en-us/hotels/caieg-cairo-marriott-hotel/overview/" target="_blank" rel="noopener">marriott.com</a>. Design © 2026 IAM360.</p>
       </div>
       <div>
         <h4>Where the facts come from</h4>
@@ -693,6 +726,7 @@ body.lb-lock{overflow:hidden}
       <div class="lb-full"><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-entrance-0252-hor-wide.jpg?downsize=1400px:*" alt=""><div class="lb-shade" style="background:linear-gradient(180deg,rgba(10,8,6,.62) 0%,rgba(10,8,6,.12) 26%,rgba(10,8,6,.5) 50%,rgba(10,8,6,.94) 100%)"></div></div>
       <div class="lb-pad lb-on-dark">
         <div style="display:flex;justify-content:space-between;align-items:flex-start"><img class="cv-logo" src="https://cache.marriott.com/content/dam/marriott-digital/mc/global-property-shared/en_us/logo/assets/mc_logo_L.png" alt="Marriott"><span class="lb-tag">LifeBook</span></div>
+        <div class="lb-cv-video"><button class="lb-video" data-video="yt:rBLXCpC23CM" data-video-title="Cairo Marriott Hotel and Omar Khayyam Casino · Cairo Marriott Hotel" data-nospeak aria-label="Play the video: Cairo Marriott Hotel and Omar Khayyam Casino"><img src="https://i.ytimg.com/vi/rBLXCpC23CM/maxresdefault.jpg" alt="" onload="if(this.naturalWidth<200&&!this.dataset.f){this.dataset.f=1;this.src='https://i.ytimg.com/vi/rBLXCpC23CM/hqdefault.jpg'}"><span class="lb-play"></span><span class="lb-video-cap"><b>Watch</b><span>The palace on film, from the hotel's own channel</span></span></button></div>
         <div class="lb-foot">
           <div class="lb-eyebrow">Cairo Marriott Hotel</div>
           <div class="cv-title">The Palace on the Nile</div>
@@ -702,23 +736,7 @@ body.lb-lock{overflow:hidden}
       </div>
     </section>
 
-    <!-- 2 welcome -->
-    <section class="page" data-title="How this book works">
-      <div class="lb-pad">
-        <div class="lb-eyebrow">Welcome</div>
-        <h2 class="lb-h1">This book answers back.</h2>
-        <p class="lb-lede">Turn the page with a tap, a swipe or the arrow keys. Where you see a gold dot, there is more behind it.</p>
-        <div style="margin-top:.4em">
-          <div class="icon-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg><div><b>Gold dots</b><span class="lb-small lb-dim">Stories, hours, photographs and links.</span></div></div>
-          <div class="icon-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h4l5 4V6L8 10H4z"/><path d="M17 9a4 4 0 010 6"/></svg><div><b>Listen</b><span class="lb-small lb-dim">The button below reads the open pages aloud.</span></div></div>
-          <div class="icon-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Open now</b><span class="lb-small lb-dim">A green dot means the place is open at this minute in Cairo.</span></div></div>
-          <div class="icon-row" style="border-bottom:.07em solid rgba(0,0,0,.13)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg><div><b>Your own day</b><span class="lb-small lb-dim">Pick a mood on page 13. Tick your sights on pages 18 and 19.</span></div></div>
-        </div>
-        <p class="lb-small lb-dim lb-foot">A proposal edition. Hours and facts are from the hotel's public pages on 14 and 15 November 2026.</p>
-      </div>
-    </section>
-
-    <!-- 3 contents -->
+    <!-- 2 contents (page 2 in every LifeBook) -->
     <section class="page" data-title="Contents">
       <div class="lb-pad">
         <div class="lb-eyebrow">Contents</div>
@@ -734,6 +752,22 @@ body.lb-lock{overflow:hidden}
         <button class="toc" data-goto="18"><span>Cairo beyond the gates</span><i>18</i></button>
         <button class="toc" data-goto="20"><span>Good to know</span><i>20</i></button>
         <div class="lb-photo lb-grow" style="margin-top:1.2em"><img src="https://cache.marriott.com/content/dam/marriott-renditions/CAIEG/caieg-garden-0253-hor-wide.jpg?downsize=1100px:*" alt="Statues in the palace gardens"></div>
+      </div>
+    </section>
+
+    <!-- 3 welcome -->
+    <section class="page" data-title="How this book works">
+      <div class="lb-pad">
+        <div class="lb-eyebrow">Welcome</div>
+        <h2 class="lb-h1">This book answers back.</h2>
+        <p class="lb-lede">Turn the page with a tap, a swipe or the arrow keys. Where you see a gold dot, there is more behind it.</p>
+        <div style="margin-top:.4em">
+          <div class="icon-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg><div><b>Gold dots</b><span class="lb-small lb-dim">Stories, hours, photographs and links.</span></div></div>
+          <div class="icon-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h4l5 4V6L8 10H4z"/><path d="M17 9a4 4 0 010 6"/></svg><div><b>Listen</b><span class="lb-small lb-dim">The button below reads the open pages aloud.</span></div></div>
+          <div class="icon-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Open now</b><span class="lb-small lb-dim">A green dot means the place is open at this minute in Cairo.</span></div></div>
+          <div class="icon-row" style="border-bottom:.07em solid rgba(0,0,0,.13)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg><div><b>Your own day</b><span class="lb-small lb-dim">Pick a mood on page 13. Tick your sights on pages 18 and 19.</span></div></div>
+        </div>
+        <p class="lb-small lb-dim lb-foot">A proposal edition. Hours and facts are from the hotel's public pages on 14 and 15 November 2026.</p>
       </div>
     </section>
 
@@ -1025,7 +1059,7 @@ body.lb-lock{overflow:hidden}
         <span class="lb-tag" style="color:var(--fb-accent)">LifeBook</span>
         <div class="cv-title" style="font-size:2.9em;margin-top:.5em">The Palace on the Nile</div>
         <p class="lb-p lb-dim" style="max-width:18em">An interactive guide you can open on any screen.</p>
-        <p class="lb-small lb-dim" style="position:absolute;bottom:2.6em;left:2em;right:2em">Proposal edition · November 2026 · Prepared by IAM360<br>A preview for the hotel's owners. Marriott International has not reviewed it.</p>
+        <p class="lb-small lb-dim" style="position:absolute;bottom:2.6em;left:2em;right:2em">Proposal edition · November 2026 · Design © 2026 IAM360<br>A preview for the hotel's owners. Marriott International has not reviewed it.</p>
       </div>
     </section>
 
@@ -1060,7 +1094,8 @@ body.lb-lock{overflow:hidden}
 /* LifeBook flipbook engine. FlipBook(root, {onChange}) turns the root's
    <section class="page" data-title="..."> children into a book.
    <template data-hot="id"> blocks hold what a [data-hot="id"] hotspot opens;
-   [data-goto="n"] jumps to page n (1-based). */
+   [data-goto="n"] jumps to page n (1-based);
+   [data-video="yt:ID"], [data-video="ig:CODE"] (an Instagram post) or [data-video="mp4:URL"] plays a video over the book. */
 function FlipBook(root, opts) {
   opts = opts || {};
   const aspect = parseFloat(root.dataset.aspect || opts.aspect || 0.74);
@@ -1106,7 +1141,8 @@ function FlipBook(root, opts) {
     const b = el("button", "", "<span></span><i>" + (i + 1) + "</i>"); b.firstChild.textContent = pg.dataset.title;
     b.onclick = () => { go(i); toc.classList.remove("is-open"); }; toc.appendChild(b);
   });
-  root.append(stage, bar, toc, pop);
+  const vid = el("div", "fbk-vid");
+  root.append(stage, bar, toc, pop, vid);
 
   let p = 0, single = false;
   const flips = (pp) => Math.ceil(pp / 2);
@@ -1166,9 +1202,35 @@ function FlipBook(root, opts) {
     }
   }
 
+  // video: a [data-video] tile opens a player over the book; turning the page or closing the book stops it
+  function closeVid() { if (!vid.classList.contains("is-open")) return; vid.classList.remove("is-open"); vid.textContent = ""; }
+  function openVid(node) {
+    const m = /^(yt|ig|mp4):(.+)$/.exec(node.dataset.video || ""); if (!m) return;
+    const yt = m[1] === "yt", ig = m[1] === "ig";
+    const watch = yt ? "https://www.youtube.com/watch?v=" + encodeURIComponent(m[2]) : ig ? "https://www.instagram.com/p/" + encodeURIComponent(m[2]) + "/" : m[2];
+    // YouTube will not play inside a page opened from a file on disk, so the video opens on YouTube instead
+    if (yt && !/^https?:$/.test(location.protocol)) { window.open(watch, "_blank", "noopener"); return; }
+    hush(); closePop(); toc.classList.remove("is-open");
+    const box = el("div", "fbk-vid-box" + (ig ? " is-tall" : "")), frame = el("div", "fbk-vid-frame");
+    let player;
+    if (yt || ig) {
+      player = el("iframe");
+      player.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen"; player.allowFullscreen = true;
+      player.referrerPolicy = "strict-origin-when-cross-origin"; player.title = node.dataset.videoTitle || "Video";
+      // Instagram's own player for a post: the video stays on Instagram, and it starts on the viewer's tap
+      player.src = yt ? "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(m[2]) + "?autoplay=1&rel=0&playsinline=1" : watch + "embed/";
+    } else { player = el("video"); player.controls = true; player.autoplay = true; player.playsInline = true; player.src = m[2]; }
+    frame.appendChild(player);
+    const x = el("button", "fbk-vid-x", "×"); x.setAttribute("aria-label", "Close the video"); x.onclick = closeVid;
+    const cap = el("div", "fbk-vid-cap"), t = el("span"); t.textContent = node.dataset.videoTitle || ""; cap.appendChild(t);
+    if (yt || ig) { const a = el("a"); a.href = watch; a.target = "_blank"; a.rel = "noopener"; a.textContent = yt ? "Watch on YouTube" : "Open on Instagram"; cap.appendChild(a); }
+    box.append(x, frame, cap); vid.appendChild(box); vid.classList.add("is-open");
+  }
+  vid.addEventListener("click", (e) => { if (e.target === vid) closeVid(); });
+
   // read aloud
   const synth = window.speechSynthesis;
-  function hush() { if (synth) synth.cancel(); bEar.classList.remove("is-on"); }
+  function hush() { if (synth) synth.cancel(); bEar.classList.remove("is-on"); closeVid(); }
   bEar.onclick = () => {
     if (!synth) return;
     if (bEar.classList.contains("is-on")) return hush();
@@ -1188,6 +1250,7 @@ function FlipBook(root, opts) {
   });
   win.addEventListener("click", (e) => {
     if (swiped) { swiped = false; return; }
+    const v = e.target.closest("[data-video]"); if (v) { e.preventDefault(); return openVid(v); }
     const g = e.target.closest("[data-goto]"); if (g) { e.preventDefault(); return go(parseInt(g.dataset.goto, 10) - 1); }
     const h = e.target.closest("[data-hot]"); if (h) { e.preventDefault(); return hot(h.dataset.hot, h); }
     if (e.target.closest("a,button,input,select,textarea,label,[data-stop]")) return;
@@ -1206,10 +1269,11 @@ function FlipBook(root, opts) {
     if (e.key === "ArrowRight" || e.key === "PageDown") { next(); e.preventDefault(); }
     else if (e.key === "ArrowLeft" || e.key === "PageUp") { prev(); e.preventDefault(); }
     else if (e.key === "Home") go(0); else if (e.key === "End") go(P - 1);
+    else if (e.key === "Escape" && vid.classList.contains("is-open")) { closeVid(); e.stopPropagation(); }
   });
   if (window.ResizeObserver) new ResizeObserver(size).observe(stage); else window.addEventListener("resize", size);
   size();
-  return { go, next, prev, hush, closePop, get page() { return p; }, get count() { return P; }, root };
+  return { go, next, prev, hush, closePop, closeVid, get page() { return p; }, get count() { return P; }, root };
 }
 
 </script>
