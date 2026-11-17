@@ -311,8 +311,14 @@ body.lb-lock{overflow:hidden}
 .fbk-btn.is-on{background:var(--fb-accent);border-color:var(--fb-accent);color:#1b1612}
 .fbk-btn svg{width:16px;height:16px;flex:none}
 .fbk-label{min-width:104px;text-align:center;letter-spacing:.06em;opacity:.85;font-variant-numeric:tabular-nums}
-.fbk-range{width:min(26vw,220px);accent-color:var(--fb-accent)}
-@media (max-width:640px){.fbk-range{display:none}.fbk-btn span{display:none}.fbk-btn{padding:0 12px}}
+.fbk-range{width:min(22vw,200px);accent-color:var(--fb-accent)}
+.fbk-btn.is-first,.fbk-btn.is-last{padding:0 11px}
+.fbk-btn.is-muted{opacity:.6}
+@media (max-width:1040px){.fbk-range{display:none}}
+@media (max-width:780px){.fbk-btn span{display:none}.fbk-btn{padding:0 12px}}
+@media (max-width:640px){.fbk-bar{gap:6px;padding-left:8px;padding-right:8px}.fbk-btn,.fbk-btn.is-first{padding:0 10px;height:36px}
+  .fbk-label{min-width:64px;font-size:12px;letter-spacing:.03em}.fbk-btn.is-last{display:none}}
+@media (max-width:350px){.fbk-btn.is-snd{display:none}}
 
 /* contents drawer and popover */
 .fbk-toc,.fbk-pop{position:absolute;z-index:30;background:#fffdf8;color:#1d1a16;box-shadow:0 24px 70px rgba(0,0,0,.45);
@@ -1110,6 +1116,10 @@ function FlipBook(root, opts) {
     next: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>',
     list: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg>',
     ear: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h4l5 4V6L8 10H4z"/><path d="M17 9a4 4 0 010 6M19.5 6.5a8 8 0 010 11"/></svg>',
+    first: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5l-7 7 7 7M19 5l-7 7 7 7"/></svg>',
+    last: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5l7 7-7 7M12 5l7 7-7 7"/></svg>',
+    snd: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></svg>',
+    mute: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/><path d="M3 3l18 18"/></svg>',
   };
   root.textContent = "";
   root.classList.add("fbk", "is-booting");
@@ -1134,7 +1144,11 @@ function FlipBook(root, opts) {
   const label = el("div", "fbk-label"), range = el("input", "fbk-range");
   range.type = "range"; range.min = 0; range.max = S; range.step = 1; range.setAttribute("aria-label", "Page");
   bPrev.setAttribute("aria-label", "Previous page"); bNext.setAttribute("aria-label", "Next page");
-  bar.append(bToc, bPrev, label, bNext, range, bEar);
+  // the double arrows jump to the front and the back of the book; the note switches the page-turn sound (David, 2026-11-16)
+  const bFirst = el("button", "fbk-btn is-first", ICON.first), bLast = el("button", "fbk-btn is-last", ICON.last), bSnd = el("button", "fbk-btn is-snd");
+  bFirst.setAttribute("aria-label", "Back to the front cover"); bFirst.title = "Front cover";
+  bLast.setAttribute("aria-label", "Go to the back cover"); bLast.title = "Back cover";
+  bar.append(bToc, bFirst, bPrev, label, bNext, bLast, range, bEar, bSnd);
   const toc = el("div", "fbk-toc", "<h3>Contents</h3>"), pop = el("div", "fbk-pop");
   pages.forEach((pg, i) => {
     if (!pg.dataset.title) return;
@@ -1173,9 +1187,42 @@ function FlipBook(root, opts) {
     book.style.transform = "translateX(" + tx + "px)";
     label.textContent = single ? (p + 1) + " / " + P : f === 0 ? "Cover" : f === S ? "Back cover" : (2 * f) + " – " + (2 * f + 1) + " / " + P;
     bPrev.disabled = p === 0; bNext.disabled = single ? p === P - 1 : f === S;
+    bFirst.disabled = bPrev.disabled; bLast.disabled = bNext.disabled;
     range.value = f;
-    if (!quiet) { hush(); closePop(); if (opts.onChange) opts.onChange(p, visible()); }
+    if (!quiet) { hush(); closePop(); if (p !== lastP) flipSound(); if (opts.onChange) opts.onChange(p, visible()); }
+    lastP = p;
   }
+  // The sound of a page turning. It is made here from filtered noise, so no audio file is loaded,
+  // and it plays only after the reader has touched the page (browsers allow no sound before that).
+  let actx = null, soundOn = true, lastP = 0;
+  try { soundOn = localStorage.getItem("lifebook-sound") !== "off"; } catch (e) {}
+  function flipSound() {
+    if (!soundOn) return;
+    try {
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC || (navigator.userActivation && !navigator.userActivation.hasBeenActive)) return;
+      actx = actx || new AC(); if (actx.state === "suspended") actx.resume();
+      const t = actx.currentTime + 0.01, dur = 0.44, n = Math.floor(actx.sampleRate * dur);
+      const buf = actx.createBuffer(1, n, actx.sampleRate), d = buf.getChannelData(0);
+      for (let i = 0; i < n; i++) d[i] = (Math.random() * 2 - 1) * (0.5 + 0.5 * Math.random());
+      const src = actx.createBufferSource(); src.buffer = buf;
+      const bp = actx.createBiquadFilter(); bp.type = "bandpass"; bp.Q.value = 0.7;
+      bp.frequency.setValueAtTime(900, t); bp.frequency.exponentialRampToValueAtTime(3400, t + 0.17); bp.frequency.exponentialRampToValueAtTime(1200, t + dur);
+      const hp = actx.createBiquadFilter(); hp.type = "highpass"; hp.frequency.value = 500;
+      const g = actx.createGain(); // a rising swish, then the soft slap of the page landing
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.15, t + 0.06); g.gain.exponentialRampToValueAtTime(0.045, t + 0.22);
+      g.gain.exponentialRampToValueAtTime(0.13, t + 0.31); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+      src.connect(bp); bp.connect(hp); hp.connect(g); g.connect(actx.destination);
+      src.start(t); src.stop(t + dur + 0.02);
+    } catch (e) {}
+  }
+  function showSnd() {
+    bSnd.innerHTML = (soundOn ? ICON.snd : ICON.mute) + "<span>Sound</span>"; bSnd.classList.toggle("is-muted", !soundOn);
+    bSnd.setAttribute("aria-pressed", soundOn ? "true" : "false"); bSnd.setAttribute("aria-label", soundOn ? "Page-turn sound is on. Turn it off" : "Page-turn sound is off. Turn it on");
+    bSnd.title = soundOn ? "Sound on" : "Sound off";
+  }
+  showSnd();
+  bSnd.onclick = () => { soundOn = !soundOn; try { localStorage.setItem("lifebook-sound", soundOn ? "on" : "off"); } catch (e) {} showSnd(); if (soundOn) flipSound(); };
   const visible = () => { const f = flips(p); return single ? [p] : [2 * f - 1, 2 * f].filter((i) => i >= 0 && i < P); };
   function go(i) { p = Math.max(0, Math.min(P - 1, i)); if (!single) p = Math.min(P - 1, flips(p) * 2); render(); }
   function next() { if (single) go(p + 1); else go(Math.min(P - 1, (flips(p) + 1) * 2)); }
@@ -1260,6 +1307,7 @@ function FlipBook(root, opts) {
     else face.classList.contains("is-back") ? prev() : next();
   });
   bPrev.onclick = prev; bNext.onclick = next;
+  bFirst.onclick = () => go(0); bLast.onclick = () => go(P - 1);
   bToc.onclick = () => toc.classList.toggle("is-open");
   stage.addEventListener("click", (e) => { if (e.target === stage) { toc.classList.remove("is-open"); closePop(); } });
   range.oninput = () => go(Math.min(P - 1, parseInt(range.value, 10) * 2));
